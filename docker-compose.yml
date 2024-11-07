@@ -1,0 +1,24 @@
+services:
+  postgres:
+    container_name: fms-postgres-sql
+    image: postgres
+    environment:
+      POSTGRES_USER: jania
+      POSTGRES_PASSWORD: jania
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: fleet_management_system
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - fms-network
+    restart: unless-stopped
+
+networks:
+  fms-network:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local

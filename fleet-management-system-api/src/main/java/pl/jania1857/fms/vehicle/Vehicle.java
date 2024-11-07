@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import pl.jania1857.fms.assignment.Assignment;
 import pl.jania1857.fms.inspection.Inspection;
 import pl.jania1857.fms.insurance.Insurance;
 import pl.jania1857.fms.refueling.Refueling;
@@ -32,14 +33,15 @@ public class Vehicle {
     private int mileage;                    // przebieg
     private String registrationNumber;      // numer rejestracyjny
     private String VIN;                     // VIN/FIN
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle_id")
     private List<Service> services;         // serwisy
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle_id")
     private List<Insurance> insurances;     // ubezpieczenia
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle_id")
     private List<Refueling> refuelings;     // tankowania
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle_id")
     private List<Inspection> inspections;   // przeglądy techniczne
+    @OneToMany(mappedBy = "vehicle_id")
     private List<Assignment> assignments;   // przypisania do kierowców
 
     @CreatedDate
