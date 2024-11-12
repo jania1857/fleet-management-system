@@ -29,7 +29,6 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(req ->
                 req.requestMatchers(
-                        "/auth/**",
                         "/v2/api/api-docs",
                         "/v3/api/api-docs",
                         "/v3/api/api-docs/**",
@@ -39,7 +38,9 @@ public class SecurityConfig {
                         "/configuration/security",
                         "/swagger-ui/**",
                         "/swagger-ui.html",
-                        "/webjars/**"
+                        "/webjars/**",
+                        /////////// PUBLIC ENDPOINTS /////////
+                        "/api/v1/user/login"
                 ).permitAll()
                         .anyRequest()
                         .authenticated()

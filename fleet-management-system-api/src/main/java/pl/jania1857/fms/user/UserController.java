@@ -2,6 +2,7 @@ package pl.jania1857.fms.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,15 @@ public class UserController {
     public ResponseEntity<LoginResponse> register(
             @RequestBody LoginRequest request
     ) {
-        return ResponseEntity.ok(userService.register(request));
+        return ResponseEntity.ok(userService.login(request));
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(
+            @RequestBody PasswordChangeRequest request,
+            Authentication connectedUser
+    ) {
+        return ResponseEntity.ok(userService.changePassword(request, connectedUser));
     }
 
 }

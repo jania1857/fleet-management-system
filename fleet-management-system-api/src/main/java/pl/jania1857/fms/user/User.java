@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-public class User implements UserDetails {
+public class User implements UserDetails, Principal {
     @Id
     @GeneratedValue
     private long id;
@@ -33,6 +33,9 @@ public class User implements UserDetails {
     private Role role;
     @OneToMany(mappedBy = "driver_id")
     List<Assignment> assignments;
+
+    boolean wasLoggedIn = false;
+    boolean changedPassword = false;
 
     @CreatedDate
     private Date createdAt;
@@ -75,5 +78,10 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return "";
     }
 }
