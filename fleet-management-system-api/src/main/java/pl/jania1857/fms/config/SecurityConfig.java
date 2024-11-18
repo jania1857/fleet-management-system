@@ -27,10 +27,14 @@ public class SecurityConfig {
         http
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
+                .securityMatcher("/api/v1")
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
                                 "/v2/api/api-docs",
+                                "/v2/api/api-docs/**",
                                 "/v3/api/api-docs",
+                                "/v3/api-docs/**",
+                                "/v3/api-docs",
                                 "/v3/api/api-docs/**",
                                 "/swagger-resources",
                                 "/swagger-resources/**",
@@ -44,9 +48,18 @@ public class SecurityConfig {
                                 "/api/v1/user/change-password"
                         ).permitAll()
 
-                        .requestMatchers("/api/v1/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/manager/**").hasRole("MANAGER")
-                        .requestMatchers("/api/v1/driver/**").hasRole("DRIVER")
+                        .requestMatchers(
+                        "/api/v1/**",
+                        "/api/v1/user/register"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                "/api/v1/manager/**"
+                        ).hasRole("MANAGER")
+
+                        .requestMatchers(
+                                "/api/v1/driver/**"
+                        ).hasRole("DRIVER")
 
                         .anyRequest().authenticated()
                 )

@@ -16,9 +16,11 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+server:
+  port: 8080
+
 admin:
   username: "admin"
   password: "admin"
-
 jwt:
   secret: "ff4886f252faa7bf3fd4940cf8a693a1b95c03a6148ed56cc3b5b1bbc46353709cf2ad2c5170a37dbce3aaa4a4a35a73d43218414af6fb2059dd74bf6e65b28d672e9f925479c968aeadee77febee5eced06b1323329c23693f7f34fb4b3ea89c5e3b4c9aa49d83c2ed7104b7a811f84e98401f19d07d524b21fe8f468ee795720a5bb1aa9cad89a7d6e37758a2f1b0b90153be15befbf649d017c171829262f7965a3941f14d00f4e3d1684647acfe4ada1cc00b42abc737c75c2673bc916b10c64b26c32beda825315c72e98e8454810c55388be34578882cd4cd2d5ac6e8457903c4a1f2ba8e8de8a15fd4fc23d43180ccd4fa9300c3fa34f4ad495af3be2"
