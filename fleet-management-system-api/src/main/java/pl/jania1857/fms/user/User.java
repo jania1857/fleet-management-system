@@ -20,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name = "_user")
 public class User implements UserDetails, Principal {
     @Id
     @GeneratedValue
@@ -31,11 +32,10 @@ public class User implements UserDetails, Principal {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToMany(mappedBy = "driver_id")
+    @OneToMany(mappedBy = "driver")
     List<Assignment> assignments;
 
-    boolean wasLoggedIn = false;
-    boolean changedPassword = false;
+    boolean enabled;
 
     @CreatedDate
     private Date createdAt;
@@ -77,7 +77,7 @@ public class User implements UserDetails, Principal {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 
     @Override

@@ -31,10 +31,14 @@ public class UserController {
 
     @PostMapping("/change-password")
     public ResponseEntity<String> changePassword(
-            @RequestBody PasswordChangeRequest request,
-            Authentication connectedUser
+            @RequestBody PasswordChangeRequest request
     ) {
-        return ResponseEntity.ok(userService.changePassword(request, connectedUser));
+        try {
+            userService.changePassword(request);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("The old password does not match");
+        }
+        return ResponseEntity.ok("Password changed successfully");
     }
 
 }

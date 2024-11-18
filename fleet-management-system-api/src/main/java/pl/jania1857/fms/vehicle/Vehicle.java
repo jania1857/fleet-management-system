@@ -33,15 +33,15 @@ public class Vehicle {
     private int mileage;                    // przebieg
     private String registrationNumber;      // numer rejestracyjny
     private String VIN;                     // VIN/FIN
-    @OneToMany(mappedBy = "vehicle_id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Service> services;         // serwisy
-    @OneToMany(mappedBy = "vehicle_id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Insurance> insurances;     // ubezpieczenia
-    @OneToMany(mappedBy = "vehicle_id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Refueling> refuelings;     // tankowania
-    @OneToMany(mappedBy = "vehicle_id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Inspection> inspections;   // przeglądy techniczne
-    @OneToMany(mappedBy = "vehicle_id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Assignment> assignments;   // przypisania do kierowców
 
     @CreatedDate
