@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.jania1857.fms.user.User;
-import pl.jania1857.fms.user.UserRepository;
+import pl.jania1857.fms.domain.user.User;
+import pl.jania1857.fms.domain.user.UserRepository;
 
-import static pl.jania1857.fms.user.Role.ADMIN;
+import static pl.jania1857.fms.domain.user.Role.ADMIN;
 
 @RequiredArgsConstructor
 @Component
