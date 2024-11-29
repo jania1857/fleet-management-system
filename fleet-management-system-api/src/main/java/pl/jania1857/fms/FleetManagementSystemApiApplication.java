@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableWebSecurity
 public class FleetManagementSystemApiApplication {
 
     public static void main(String[] args) {

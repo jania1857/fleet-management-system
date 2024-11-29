@@ -8,58 +8,66 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.jania1857.fms.domain.assignment.Assignment;
+import pl.jania1857.fms.domain.role.Role;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "_user")
+@EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Principal {
+
     @Id
     @GeneratedValue
-    private long id;
-
+    private Integer id;
     private String firstname;
     private String lastname;
-    private String username;
+    @Column(unique = true)
+    private String email;
     private String password;
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    @OneToMany(mappedBy = "driver")
-    List<Assignment> assignments;
+    private boolean accountLocked;
+    private boolean enabled;
 
-    boolean enabled;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles;
 
     @CreatedDate
-    private Date createdAt;
+    @Column(nullable = false, updatable = false)
+    private LocalDate createdDate;
     @LastModifiedDate
-    private Date updatedAt;
-
-
-
+    @Column(insertable = false)
+    private LocalDate lastModifiedDate;
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+    public String getName() {
+        return email;
     }
 
     @Override
-    public String getUsername() {
-        return username;
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles
+                .stream()
+                .map(r -> new SimpleGrantedAuthority(r.getName()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
 
     @Override
@@ -69,7 +77,7 @@ public class User implements UserDetails, Principal {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !accountLocked;
     }
 
     @Override
@@ -82,8 +90,7 @@ public class User implements UserDetails, Principal {
         return enabled;
     }
 
-    @Override
-    public String getName() {
-        return "";
+    public String fullName() {
+        return firstname + " " + lastname;
     }
 }
