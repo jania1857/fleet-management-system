@@ -1,6 +1,7 @@
 package pl.jania1857.fmsapi.dto;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,13 +19,36 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(min = 1, max = 50)
     private String manufacturer;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String model;
+
+    @NotNull
+    @Min(1900)
+    @Max(2100)
     private int year;
+
+    @NotNull
+    @Pattern(regexp = "^[A-Z0-9-]+$")
     private String registrationNumber;
+
+    @NotNull
+    @Pattern(regexp = "^[A-HJ-NPR-Z0-9]{17}$")
     private String vin;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String status;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String fuelType;
+
+    @Positive
     private double displacement;
 
     @ManyToOne

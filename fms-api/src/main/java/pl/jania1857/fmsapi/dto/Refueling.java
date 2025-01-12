@@ -1,10 +1,13 @@
 package pl.jania1857.fmsapi.dto;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.jania1857.fmsapi.utils.FuelType;
 
 import java.time.LocalDateTime;
 
@@ -18,9 +21,17 @@ public class Refueling {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String fuel;
+    @NotNull
+    private FuelType fuel;
+
+    @Positive
     private double price;
+
+    @NotNull
+    @Positive
     private double quantity;
+
+    @NotNull
     private LocalDateTime dateTime;
 
     @ManyToOne

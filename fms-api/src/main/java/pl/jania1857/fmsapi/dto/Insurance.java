@@ -1,6 +1,9 @@
 package pl.jania1857.fmsapi.dto;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,11 +21,24 @@ public class Insurance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String type;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String number;
+
+    @NotNull
+    @Size(min = 1, max = 50)
     private String insurer;
+
+    @NotNull
     private LocalDate startingDate;
+
+    @NotNull
     private LocalDate endingDate;
+    
+    @Size(max = 500)
     private String description;
 
     @ManyToOne
