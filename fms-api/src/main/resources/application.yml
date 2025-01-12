@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: fms-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fleet_management
+    username: jania
+    password: jania
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
