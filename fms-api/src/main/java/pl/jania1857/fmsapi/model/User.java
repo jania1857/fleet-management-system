@@ -1,8 +1,7 @@
-package pl.jania1857.fmsapi.dto;
+package pl.jania1857.fmsapi.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,28 +10,34 @@ import pl.jania1857.fmsapi.utils.Role;
 
 import java.util.List;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Table(name = "_user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull
-    @Size(min = 3, max = 50)
+    private String username;
+
+    @NotNull
+    private String password;
+
+    @NotNull
     private String firstname;
 
     @NotNull
-    @Size(min = 3, max = 50)
     private String lastname;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL)
-    private List<Vehicle> vehicles;
+    @OneToMany(mappedBy = "id")
+    private List<Assignment> assignments;
 }

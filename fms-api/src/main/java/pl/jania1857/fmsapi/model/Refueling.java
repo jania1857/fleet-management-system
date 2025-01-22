@@ -1,38 +1,39 @@
-package pl.jania1857.fmsapi.dto;
+package pl.jania1857.fmsapi.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import pl.jania1857.fmsapi.utils.Fuel;
 
-@Entity
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Service {
+@Entity
+public class Refueling {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull
-    @Size(min = 1, max = 50)
-    private String title;
+    private Fuel fuel;
 
     @NotNull
-    @Size(min = 1, max = 500)
-    private String description;
+    private BigDecimal price;
 
-    @PositiveOrZero
-    private double mileageAtTheTime;
+    @NotNull
+    private BigDecimal quantity;
 
-    @Positive
-    private double nextServiceAt;
+    @CreationTimestamp
+    private LocalDateTime timestamp;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
@@ -41,4 +42,5 @@ public class Service {
     @OneToOne
     @JoinColumn(name = "cost_id")
     private Cost cost;
+
 }

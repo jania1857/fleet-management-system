@@ -1,38 +1,44 @@
-package pl.jania1857.fmsapi.dto;
+package pl.jania1857.fmsapi.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.jania1857.fmsapi.utils.InsuranceType;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Inspection {
+@Entity
+public class Insurance {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull
-    private LocalDate date;
+    @Enumerated(EnumType.STRING)
+    private InsuranceType type;
 
     @NotNull
-    @Future
-    private LocalDate nextInspectionDate;
+    private String number;
 
     @NotNull
-    private boolean passed;
-
-    @Size(max = 500)
     private String description;
+
+    @NotNull
+    private String insurer;
+
+    @NotNull
+    private LocalDateTime startDate;
+
+    @NotNull
+    private LocalDateTime endDate;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
