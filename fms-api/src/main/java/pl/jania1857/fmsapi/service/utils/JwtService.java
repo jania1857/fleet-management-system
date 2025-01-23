@@ -1,4 +1,4 @@
-package pl.jania1857.fmsapi.service;
+package pl.jania1857.fmsapi.service.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

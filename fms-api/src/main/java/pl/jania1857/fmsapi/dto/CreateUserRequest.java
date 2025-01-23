@@ -2,7 +2,7 @@ package pl.jania1857.fmsapi.dto;
 
 import pl.jania1857.fmsapi.utils.Role;
 
-public record RegistrationRequest(
+public record CreateUserRequest(
         String firstname,
         String lastname,
         Role role

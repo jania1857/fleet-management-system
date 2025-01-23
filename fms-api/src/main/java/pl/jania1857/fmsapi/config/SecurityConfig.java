@@ -1,5 +1,6 @@
 package pl.jania1857.fmsapi.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,19 +18,40 @@ import pl.jania1857.fmsapi.filter.JwtAuthFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
+    private final UserDetailsService userDetailsService;
+    private final JwtAuthFilter jwtAuthFilter;
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, UserDetailsService userDetailsService, JwtAuthFilter jwtAuthFilter) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(
-                        req -> req.requestMatchers(
-                                        "/auth/**"
-                                )
-                                .permitAll()
-                                .anyRequest()
-                                .authenticated()
+                .authorizeHttpRequests(req -> req
+
+                        /// PUBLIC
+                        .requestMatchers(
+                                "/api/v1/public/**"
+                        ).permitAll()
+
+                        /// MANAGER
+                        .requestMatchers(
+                                "/api/v1/manager/**"
+                        ).hasAnyAuthority("ADMIN", "DRIVER")
+
+                        /// DRIVER
+                        .requestMatchers(
+                                "/api/v1/driver/**"
+                        ).hasAnyAuthority("ADMIN", "DRIVER")
+
+                        /// ADMIN ONLY
+                        .requestMatchers(
+                                "/api/v1/admin/**"
+                        ).hasAnyAuthority("ADMIN")
+
+                        /// ALL AUTHENTICATED
+                        .anyRequest().authenticated()
                 )
                 .userDetailsService(userDetailsService)
                 .sessionManagement(session -> session

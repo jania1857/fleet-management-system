@@ -32,6 +32,9 @@ public class Refueling {
     @NotNull
     private BigDecimal quantity;
 
+    @NotNull
+    private BigDecimal amount;
+
     @CreationTimestamp
     private LocalDateTime timestamp;
 

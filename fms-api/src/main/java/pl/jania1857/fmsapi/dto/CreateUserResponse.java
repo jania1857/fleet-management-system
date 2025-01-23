@@ -1,7 +1,6 @@
 package pl.jania1857.fmsapi.dto;
 
-public record RegistrationResponse(
-        String token,
+public record CreateUserResponse(
         String username,
         String generatedPassword
 ) {

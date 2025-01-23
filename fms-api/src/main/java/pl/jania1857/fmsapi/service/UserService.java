@@ -1,30 +1,26 @@
 package pl.jania1857.fmsapi.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.jania1857.fmsapi.dto.AuthenticationRequest;
-import pl.jania1857.fmsapi.dto.AuthenticationResponse;
-import pl.jania1857.fmsapi.dto.RegistrationRequest;
-import pl.jania1857.fmsapi.dto.RegistrationResponse;
+import pl.jania1857.fmsapi.dto.all.ChangePasswordRequest;
+import pl.jania1857.fmsapi.dto.CreateUserRequest;
+import pl.jania1857.fmsapi.dto.CreateUserResponse;
 import pl.jania1857.fmsapi.model.User;
 import pl.jania1857.fmsapi.repository.UserRepository;
 
+import java.security.Principal;
 import java.security.SecureRandom;
-
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService {
+public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
 
-    public RegistrationResponse register(RegistrationRequest request) {
+    public CreateUserResponse createUser(CreateUserRequest request) {
 
         String password = generateSecurePassword();
         String username = generateUsername(request.firstname(), request.lastname());
@@ -35,33 +31,37 @@ public class AuthenticationService {
         user.setLastname(request.lastname());
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
+        user.setRole(request.role());
 
         userRepository.save(user);
 
-        String token = jwtService.generateToken(user);
-
-        return new RegistrationResponse(token, username, password);
+        return new CreateUserResponse(username, password);
     }
 
-    public AuthenticationResponse login(AuthenticationRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.username(),
-                        request.password()
-                )
-        );
+    public void changePassword(ChangePasswordRequest request, Principal principal) {
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
 
-        User user = userRepository.findByUsername(request.username())
-                .orElseThrow(() -> new UsernameNotFoundException(request.username()));
-        String token = jwtService.generateToken(user);
+        if (!passwordEncoder.matches(request.oldPassword(), user.getPassword())) {
+            throw new BadCredentialsException("Old password does not match");
+        }
 
-        return new AuthenticationResponse(token);
+        if (!request.newPassword().equals(request.confirmPassword())) {
+            throw new IllegalArgumentException("Passwords do not match");
+        }
 
+        user.setPassword(passwordEncoder.encode(request.newPassword()));
+        userRepository.save(user);
     }
+
+
+
+
 
     private String generateUsername(String firstname, String lastname) {
-        String baseUsername = (firstname.length() > 3 ? firstname.substring(0, 3) : firstname.toLowerCase()) +
-                              (lastname.length() > 3 ? lastname.substring(0, 3) : lastname.toLowerCase());
+        String baseUsername = (firstname.length() > 3 ? firstname.substring(0, 3).toLowerCase() : firstname.toLowerCase()) +
+                (lastname.length() > 3 ? lastname.substring(0, 3).toLowerCase() : lastname.toLowerCase());
 
         String uniqueUsername = baseUsername;
         int counter = 1;
@@ -105,3 +105,4 @@ public class AuthenticationService {
         return new String(array);
     }
 }
+
