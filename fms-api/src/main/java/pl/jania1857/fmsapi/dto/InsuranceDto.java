@@ -13,6 +13,6 @@ public record InsuranceDto(
         LocalDateTime startDate,
         LocalDateTime endDate,
         Integer vehicleId,
-        Integer costId
+        CostDto cost
 ) {
 }

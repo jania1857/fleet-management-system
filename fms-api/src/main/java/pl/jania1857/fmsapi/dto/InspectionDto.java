@@ -9,6 +9,6 @@ public record InspectionDto(
         String description,
         Boolean passed,
         Integer vehicleId,
-        Integer costId
+        CostDto cost
 ) {
 }

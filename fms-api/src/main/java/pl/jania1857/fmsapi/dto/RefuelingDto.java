@@ -13,6 +13,6 @@ public record RefuelingDto(
     BigDecimal amount,
     LocalDateTime timestamp,
     Integer vehicleId,
-    Integer costId
+    CostDto cost
 ) {
 }

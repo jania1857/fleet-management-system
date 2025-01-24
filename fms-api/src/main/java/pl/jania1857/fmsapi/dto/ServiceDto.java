@@ -6,6 +6,6 @@ public record ServiceDto(
         String description,
         Integer mileageAtTheTime,
         Integer vehicleId,
-        Integer costId
+        CostDto cost
 ) {
 }
