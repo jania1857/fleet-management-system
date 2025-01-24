@@ -39,25 +39,25 @@ public class Vehicle {
     @NotNull
     private Integer displacement;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<StatusChange> statusChanges;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Refueling> refuelings;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Inspection> inspections;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Service> services;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Insurance> insurances;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<MileageChange> mileageChanges;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "vehicle")
     private List<Assignment> assignments;
 
 }

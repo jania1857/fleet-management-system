@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 import pl.jania1857.fmsapi.utils.Fuel;
 
 import java.math.BigDecimal;
@@ -35,7 +36,7 @@ public class Refueling {
     @NotNull
     private BigDecimal amount;
 
-    @CreationTimestamp
+    @CreatedDate
     private LocalDateTime timestamp;
 
     @ManyToOne

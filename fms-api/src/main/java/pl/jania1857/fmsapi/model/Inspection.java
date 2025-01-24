@@ -32,7 +32,7 @@ public class Inspection {
     @NotNull
     private Boolean passed;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 

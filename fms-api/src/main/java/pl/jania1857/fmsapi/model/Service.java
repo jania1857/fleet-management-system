@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -24,9 +27,12 @@ public class Service {
     private String description;
 
     @NotNull
-    private int mileageAtTheTime;
+    private Integer mileageAtTheTime;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @CreatedDate
+    private LocalDateTime timestamp;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 
