@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
+import pl.jania1857.fmsapi.service.CostService;
+import pl.jania1857.fmsapi.service.UpdateCostRequest;
 import pl.jania1857.fmsapi.service.UserService;
 import pl.jania1857.fmsapi.service.VehicleService;
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class ManagerController {
     private final VehicleService vehicleService;
     private final UserService userService;
+    private final CostService costService;
 
     @PostMapping("/createVehicle")
     public ResponseEntity<VehicleDto> createVehicle(
@@ -92,6 +95,13 @@ public class ManagerController {
         return ResponseEntity.ok(vehicleService.newAssignment(vehicleId, userId));
     }
 
+    @PatchMapping("/endAssignment/{assignmentId}")
+    public ResponseEntity<AssignmentDto> endAssignment(
+            @PathVariable Integer assignmentId
+    ) {
+        return ResponseEntity.ok(vehicleService.endAssignment(assignmentId));
+    }
+
     @GetMapping("/getUserAssignments/{userId}")
     public ResponseEntity<List<UserAssignmentResponse>> getUserAssignments(
             @PathVariable Integer userId
@@ -104,4 +114,23 @@ public class ManagerController {
         return ResponseEntity.ok(userService.getDrivers());
     }
 
+    @GetMapping("/getAllCosts")
+    public ResponseEntity<List<CostDto>> getCosts() {
+        return ResponseEntity.ok(costService.getAllCosts());
+    }
+
+    @GetMapping("/getCostById/{costId}")
+    ResponseEntity<CostDto> getCostById(@PathVariable Integer costId) {
+        return ResponseEntity.ok(costService.getCostById(costId));
+    }
+
+    @GetMapping("/getAllCostsForVehicle")
+    public ResponseEntity<List<CostDto>> getAllCostsForVehicle(@RequestParam Integer vehicleId) {
+        return ResponseEntity.ok(costService.getAllCostsForVehicle(vehicleId));
+    }
+
+    @PatchMapping("/updateCost/{costId}")
+    public ResponseEntity<CostDto> updateCost(@PathVariable Integer costId, @RequestBody UpdateCostRequest request) {
+        return ResponseEntity.ok(costService.updateCost(costId, request));
+    }
 }

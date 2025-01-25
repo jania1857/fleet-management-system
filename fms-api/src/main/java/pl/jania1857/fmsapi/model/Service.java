@@ -32,7 +32,7 @@ public class Service {
     @CreationTimestamp
     private LocalDateTime timestamp;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 

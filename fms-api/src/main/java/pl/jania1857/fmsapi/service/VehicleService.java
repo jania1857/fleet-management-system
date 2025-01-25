@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.model.*;
-import pl.jania1857.fmsapi.repository.AssignmentRepository;
-import pl.jania1857.fmsapi.repository.UserRepository;
-import pl.jania1857.fmsapi.repository.VehicleRepository;
+import pl.jania1857.fmsapi.repository.*;
 import pl.jania1857.fmsapi.service.mapper.*;
 import pl.jania1857.fmsapi.utils.Status;
 
@@ -31,6 +29,8 @@ public class VehicleService {
     private final AssignmentMapper assignmentMapper;
     private final UserRepository userRepository;
     private final AssignmentRepository assignmentRepository;
+    private final CostRepository costRepository;
+    private final InsuranceRepository insuranceRepository;
 
     public VehicleDto createVehicle(
             CreateVehicleRequest request
@@ -133,6 +133,7 @@ public class VehicleService {
 
         StatusChange newStatus = StatusChange.builder()
                 .newStatus(request.newStatus())
+                .vehicle(vehicle)
                 .build();
 
         vehicle.getStatusChanges().add(newStatus);
@@ -157,13 +158,16 @@ public class VehicleService {
                 .price(request.price())
                 .quantity(request.quantity())
                 .amount(request.amount())
+                .vehicle(vehicle)
                 .build();
 
         Cost refuelingCost = Cost.builder()
                 .amount(request.amount())
                 .build();
 
-        refueling.setCost(refuelingCost);
+        Cost savedCost = costRepository.save(refuelingCost);
+
+        refueling.setCost(savedCost);
 
         vehicle.getRefuelings().add(refueling);
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
@@ -184,12 +188,17 @@ public class VehicleService {
                 .amount(BigDecimal.valueOf(98))
                 .build();
 
+        Cost savedCost = costRepository.save(inspectionCost);
+
         Inspection inspection = Inspection.builder()
                 .inspectionDate(request.inspectionDate())
                 .description(request.description())
                 .passed(request.passed())
-                .cost(inspectionCost)
+                .vehicle(vehicle)
                 .build();
+
+
+        inspection.setCost(savedCost);
 
         List<Inspection> inspections = vehicle.getInspections();
         Inspection latestPassedInspection = inspections.stream()
@@ -234,24 +243,28 @@ public class VehicleService {
                 .amount(request.cost())
                 .build();
 
+        Cost savedCost = costRepository.save(serviceCost);
+
         pl.jania1857.fmsapi.model.Service service = pl.jania1857.fmsapi.model.Service.builder()
                 .name(request.name())
                 .description(request.description())
                 .mileageAtTheTime(request.mileageAtTheTime())
-                .cost(serviceCost)
+                .cost(savedCost)
+                .vehicle(vehicle)
                 .build();
 
         vehicle.getServices().add(service);
 
         MileageChange newMileage = MileageChange.builder()
                 .newMileage(request.mileageAtTheTime())
+                .vehicle(vehicle)
                 .build();
 
         vehicle.getMileageChanges().add(newMileage);
 
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
 
-        pl.jania1857.fmsapi.model.Service latestService = vehicle.getServices().stream()
+        pl.jania1857.fmsapi.model.Service latestService = savedVehicle.getServices().stream()
                 .max(Comparator.comparing(pl.jania1857.fmsapi.model.Service::getTimestamp))
                 .orElseThrow(() -> new EntityNotFoundException("Service with id " + service.getId() + " not found"));
 
@@ -269,6 +282,8 @@ public class VehicleService {
                 .amount(request.cost())
                 .build();
 
+        Cost savedCost = costRepository.save(insuranceCost);
+
         Insurance insurance = Insurance.builder()
                 .type(request.insuranceType())
                 .number(request.number())
@@ -276,16 +291,24 @@ public class VehicleService {
                 .insurer(request.insurer())
                 .startDate(request.startDate())
                 .endDate(request.startDate().plusYears(1))
-                .cost(insuranceCost)
+                .vehicle(vehicle)
+                .cost(savedCost)
                 .build();
 
         vehicle.getInsurances().add(insurance);
 
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
 
-        Insurance latestInsurance = savedVehicle.getInsurances().stream()
-                .max(Comparator.comparing(ins -> ins.getCost().getTimestamp()))
-                .orElseThrow(() -> new EntityNotFoundException("Insurance with id " + insurance.getId() + " not found"));
+        Insurance latestInsurance;
+        if (savedVehicle.getInsurances().size() < 2) {
+            latestInsurance = savedVehicle.getInsurances().getFirst();
+        } else {
+            latestInsurance = savedVehicle.getInsurances().stream()
+                    .filter(ins -> ins.getCost() != null)
+                    .max(Comparator.comparing(ins -> ins.getCost().getTimestamp()))
+                    .orElseThrow(() -> new EntityNotFoundException("Insurance with id " + insurance.getId() + " not found"));
+        }
+
 
         return insuranceMapper.toDto(latestInsurance);
     }
@@ -299,6 +322,7 @@ public class VehicleService {
 
         MileageChange mileageChange = MileageChange.builder()
                 .newMileage(request.newMileage())
+                .vehicle(vehicle)
                 .build();
 
         vehicle.getMileageChanges().add(mileageChange);
@@ -337,6 +361,20 @@ public class VehicleService {
 
         Assignment savedAssignment = assignmentRepository.save(assignment);
 
+        return assignmentMapper.toDto(savedAssignment);
+    }
+
+    public AssignmentDto endAssignment(
+            Integer assignmentId
+    ) {
+        Assignment assignment = assignmentRepository.findById(assignmentId)
+                .orElseThrow(() -> new EntityNotFoundException("Assignment with id " + assignmentId + " not found"));
+
+        if (assignment.getEndTime() != null) {
+            throw new IllegalArgumentException("Assignment with id " + assignmentId + " has been already closed!");
+        }
+        assignment.setEndTime(LocalDateTime.now());
+        Assignment savedAssignment = assignmentRepository.save(assignment);
         return assignmentMapper.toDto(savedAssignment);
     }
 }

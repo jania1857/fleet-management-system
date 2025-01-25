@@ -42,7 +42,7 @@ public class Refueling {
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cost_id")
     private Cost cost;
 

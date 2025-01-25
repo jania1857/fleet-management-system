@@ -26,7 +26,7 @@ public class Assignment {
     @NotNull
     private LocalDateTime startTime;
 
-    @Column(insertable = false, updatable = false)
+    @Column(updatable = true)
     private LocalDateTime endTime;
 
     @ManyToOne

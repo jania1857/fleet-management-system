@@ -14,7 +14,8 @@ public class CostMapper {
                     cost.getRefueling().getId(),
                     null,
                     null,
-                    null
+                    null,
+                    cost.getTimestamp()
             );
         } else if (cost.getInspection() != null) {
             return new CostDto(
@@ -23,7 +24,8 @@ public class CostMapper {
                     null,
                     cost.getInspection().getId(),
                     null,
-                    null
+                    null,
+                    cost.getTimestamp()
             );
         } else if (cost.getService() != null) {
             return new CostDto(
@@ -32,7 +34,8 @@ public class CostMapper {
                     null,
                     null,
                     cost.getService().getId(),
-                    null
+                    null,
+                    cost.getTimestamp()
             );
         } else if (cost.getInsurance() != null) {
             return new CostDto(
@@ -41,7 +44,8 @@ public class CostMapper {
                     null,
                     null,
                     null,
-                    cost.getInsurance().getId()
+                    cost.getInsurance().getId(),
+                    cost.getTimestamp()
             );
         }
         return new CostDto(
@@ -50,7 +54,8 @@ public class CostMapper {
                 null,
                 null,
                 null,
-                null
+                null,
+                cost.getTimestamp()
         );
     }
 }

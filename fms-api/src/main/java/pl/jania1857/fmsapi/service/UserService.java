@@ -66,9 +66,11 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException(String.valueOf(userId)));
 
-        user.setPassword(passwordEncoder.encode(generateSecurePassword()));
+        String generatedPassword = generateSecurePassword();
+
+        user.setPassword(passwordEncoder.encode(generatedPassword));
         User savedUser = userRepository.save(user);
-        return new GeneratedUserCredentialsResponse(user.getUsername(), savedUser.getPassword());
+        return new GeneratedUserCredentialsResponse(user.getUsername(), generatedPassword);
     }
 
     public List<UserAssignmentResponse> getUserAssignments(Integer userId) {

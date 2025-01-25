@@ -6,5 +6,4 @@ import pl.jania1857.fmsapi.model.Cost;
 
 @Repository
 public interface CostRepository extends JpaRepository<Cost, Integer> {
-
 }

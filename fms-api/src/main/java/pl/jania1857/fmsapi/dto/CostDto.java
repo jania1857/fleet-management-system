@@ -1,6 +1,7 @@
 package pl.jania1857.fmsapi.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public record CostDto(
         Integer id,
@@ -8,6 +9,7 @@ public record CostDto(
         Integer refuelingId,
         Integer inspectionId,
         Integer serviceId,
-        Integer insuranceId
+        Integer insuranceId,
+        LocalDateTime timestamp
 ) {
 }

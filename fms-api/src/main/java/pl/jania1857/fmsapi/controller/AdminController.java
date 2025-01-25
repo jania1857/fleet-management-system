@@ -1,9 +1,11 @@
 package pl.jania1857.fmsapi.controller;
 
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
+import pl.jania1857.fmsapi.service.CostService;
 import pl.jania1857.fmsapi.service.UserService;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 public class AdminController {
 
     private final UserService userService;
+    private final CostService costService;
 
     @PostMapping("/createUser")
     public ResponseEntity<GeneratedUserCredentialsResponse> createUser(

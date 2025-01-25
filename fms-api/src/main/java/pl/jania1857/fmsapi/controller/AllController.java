@@ -43,7 +43,7 @@ public class AllController {
         return ResponseEntity.ok(vehicleService.getVehicleById(vehicleId));
     }
 
-    @GetMapping("/newRefueling/{vehicleId}")
+    @PostMapping("/newRefueling/{vehicleId}")
     public ResponseEntity<RefuelingDto> newRefueling(
             @PathVariable Integer vehicleId,
             @RequestBody NewRefuelingRequest request
