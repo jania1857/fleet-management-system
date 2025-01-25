@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.service.CostService;
 import pl.jania1857.fmsapi.dto.UpdateCostRequest;
+import pl.jania1857.fmsapi.service.RefuelingService;
 import pl.jania1857.fmsapi.service.UserService;
 import pl.jania1857.fmsapi.service.VehicleService;
 
 import java.util.List;
+
+import static org.springframework.http.ResponseEntity.noContent;
+import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,12 +22,13 @@ public class ManagerController {
     private final VehicleService vehicleService;
     private final UserService userService;
     private final CostService costService;
+    private final RefuelingService refuelingService;
 
     @PostMapping("/createVehicle")
     public ResponseEntity<VehicleDto> createVehicle(
             @RequestBody CreateVehicleRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.createVehicle(request));
+        return ok(vehicleService.createVehicle(request));
     }
 
     @PutMapping("/updateVehicle/{vehicleId}")
@@ -31,12 +36,12 @@ public class ManagerController {
             @RequestBody UpdateVehicleRequest request,
             @PathVariable Integer vehicleId
     ) {
-        return ResponseEntity.ok(vehicleService.updateVehicle(vehicleId, request));
+        return ok(vehicleService.updateVehicle(vehicleId, request));
     }
 
     @GetMapping("/getAllVehicles")
     public ResponseEntity<List<VehicleDto>> getAllVehicles() {
-        return ResponseEntity.ok(vehicleService.getAllVehicles());
+        return ok(vehicleService.getAllVehicles());
     }
 
     @DeleteMapping("/deleteVehicle/{vehicleId}")
@@ -44,7 +49,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId
     ) {
         vehicleService.deleteVehicleById(vehicleId);
-        return ResponseEntity.noContent().build();
+        return noContent().build();
     }
 
     @PatchMapping("/changeStatusForVehicle/{vehicleId}")
@@ -52,7 +57,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId,
             @RequestBody ChangeStatusRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.changeStatusForVehicle(vehicleId, request));
+        return ok(vehicleService.changeStatusForVehicle(vehicleId, request));
     }
 
     @PostMapping("/newInspection/{vehicleId}")
@@ -60,7 +65,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId,
             @RequestBody NewInspectionRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.newInspection(vehicleId, request));
+        return ok(vehicleService.newInspection(vehicleId, request));
     }
 
     @PostMapping("/newService/{vehicleId}")
@@ -68,7 +73,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId,
             @RequestBody NewServiceRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.newService(vehicleId, request));
+        return ok(vehicleService.newService(vehicleId, request));
     }
 
     @PostMapping("/newInsurance/{vehicleId}")
@@ -76,7 +81,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId,
             @RequestBody NewInsuranceRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.newInsurance(vehicleId, request));
+        return ok(vehicleService.newInsurance(vehicleId, request));
     }
 
     @PostMapping("/newMileage/{vehicleId}")
@@ -84,7 +89,7 @@ public class ManagerController {
             @PathVariable Integer vehicleId,
             @RequestBody NewMileageChangeRequest request
     ) {
-        return ResponseEntity.ok(vehicleService.newMileageChange(vehicleId, request));
+        return ok(vehicleService.newMileageChange(vehicleId, request));
     }
 
     @PostMapping("/newAssignment/{userId}/{vehicleId}")
@@ -92,45 +97,60 @@ public class ManagerController {
             @PathVariable Integer userId,
             @PathVariable Integer vehicleId
     ) {
-        return ResponseEntity.ok(vehicleService.newAssignment(vehicleId, userId));
+        return ok(vehicleService.newAssignment(vehicleId, userId));
     }
 
     @PatchMapping("/endAssignment/{assignmentId}")
     public ResponseEntity<AssignmentDto> endAssignment(
             @PathVariable Integer assignmentId
     ) {
-        return ResponseEntity.ok(vehicleService.endAssignment(assignmentId));
+        return ok(vehicleService.endAssignment(assignmentId));
     }
 
     @GetMapping("/getUserAssignments/{userId}")
     public ResponseEntity<List<UserAssignmentResponse>> getUserAssignments(
             @PathVariable Integer userId
     ) {
-        return ResponseEntity.ok(userService.getUserAssignments(userId));
+        return ok(userService.getUserAssignments(userId));
     }
 
     @GetMapping("/getDrivers")
     public ResponseEntity<List<UserDto>> getDrivers() {
-        return ResponseEntity.ok(userService.getDrivers());
+        return ok(userService.getDrivers());
     }
 
     @GetMapping("/getAllCosts")
     public ResponseEntity<List<CostDto>> getCosts() {
-        return ResponseEntity.ok(costService.getAllCosts());
+        return ok(costService.getAllCosts());
     }
 
     @GetMapping("/getCostById/{costId}")
     ResponseEntity<CostDto> getCostById(@PathVariable Integer costId) {
-        return ResponseEntity.ok(costService.getCostById(costId));
+        return ok(costService.getCostById(costId));
     }
 
     @GetMapping("/getAllCostsForVehicle")
     public ResponseEntity<List<CostDto>> getAllCostsForVehicle(@RequestParam Integer vehicleId) {
-        return ResponseEntity.ok(costService.getAllCostsForVehicle(vehicleId));
+        return ok(costService.getAllCostsForVehicle(vehicleId));
     }
 
     @PatchMapping("/updateCost/{costId}")
     public ResponseEntity<CostDto> updateCost(@PathVariable Integer costId, @RequestBody UpdateCostRequest request) {
-        return ResponseEntity.ok(costService.updateCost(costId, request));
+        return ok(costService.updateCost(costId, request));
+    }
+
+    @GetMapping("/getAllRefuelings")
+    public ResponseEntity<List<RefuelingDto>> getAllRefuelings() {
+        return ok(refuelingService.getAllRefuelings());
+    }
+
+    @GetMapping("/getRefuelingById/{refuelingId}")
+    public ResponseEntity<RefuelingDto> getRefuelingById(@PathVariable Integer refuelingId) {
+        return ok(refuelingService.getRefuelingById(refuelingId));
+    }
+
+    @GetMapping("/getRefuelingsForVehicle/{vehicleId}")
+    public ResponseEntity<List<RefuelingDto>> getRefuelingsForVehicle(@PathVariable Integer vehicleId) {
+        return ok(refuelingService.getRefuelingsForVehicle(vehicleId));
     }
 }
