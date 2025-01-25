@@ -4,11 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
-import pl.jania1857.fmsapi.service.CostService;
+import pl.jania1857.fmsapi.service.*;
 import pl.jania1857.fmsapi.dto.UpdateCostRequest;
-import pl.jania1857.fmsapi.service.RefuelingService;
-import pl.jania1857.fmsapi.service.UserService;
-import pl.jania1857.fmsapi.service.VehicleService;
 
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class ManagerController {
     private final UserService userService;
     private final CostService costService;
     private final RefuelingService refuelingService;
+    private final InspectionService inspectionService;
 
     @PostMapping("/createVehicle")
     public ResponseEntity<VehicleDto> createVehicle(
@@ -152,5 +150,25 @@ public class ManagerController {
     @GetMapping("/getRefuelingsForVehicle/{vehicleId}")
     public ResponseEntity<List<RefuelingDto>> getRefuelingsForVehicle(@PathVariable Integer vehicleId) {
         return ok(refuelingService.getRefuelingsForVehicle(vehicleId));
+    }
+
+    @GetMapping("/getAllInspections")
+    public ResponseEntity<List<InspectionDto>> getAllInspections() {
+        return ok(inspectionService.getAllInspections());
+    }
+
+    @GetMapping("/getInspectionById/{inspectionId}")
+    public ResponseEntity<InspectionDto> getInspectionById(@PathVariable Integer inspectionId) {
+        return ok(inspectionService.getInspectionById(inspectionId));
+    }
+
+    @GetMapping("/getInspectionsForVehicle/{vehicleId}")
+    public ResponseEntity<List<InspectionDto>> getInspectionsForVehicle(@PathVariable Integer vehicleId) {
+        return ok(inspectionService.getInspectionsForVehicle(vehicleId));
+    }
+
+    @PatchMapping("/updateInspection/{inspectionId}")
+    public ResponseEntity<InspectionDto> updateInspection(@PathVariable Integer inspectionId, @RequestBody UpdateInspectionRequest request) {
+        return ok(inspectionService.updateInspection(inspectionId, request));
     }
 }

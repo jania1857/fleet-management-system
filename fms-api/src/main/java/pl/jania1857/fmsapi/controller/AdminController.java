@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.service.CostService;
+import pl.jania1857.fmsapi.service.InspectionService;
 import pl.jania1857.fmsapi.service.RefuelingService;
 import pl.jania1857.fmsapi.service.UserService;
 
@@ -21,6 +22,7 @@ public class AdminController {
     private final UserService userService;
     private final CostService costService;
     private final RefuelingService refuelingService;
+    private final InspectionService inspectionService;
 
     @PostMapping("/createUser")
     public ResponseEntity<GeneratedUserCredentialsResponse> createUser(
@@ -80,6 +82,14 @@ public class AdminController {
             @PathVariable Integer refuelingId
     ) {
         refuelingService.deleteRefueling(refuelingId);
+        return noContent().build();
+    }
+
+    @DeleteMapping("/deleteInspection/{inspectionId}")
+    public ResponseEntity<Void> deleteInspection(
+            @PathVariable Integer inspectionId
+    ) {
+        inspectionService.deleteInspection(inspectionId);
         return noContent().build();
     }
 }
