@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.service.CostService;
-import pl.jania1857.fmsapi.service.UpdateCostRequest;
+import pl.jania1857.fmsapi.dto.UpdateCostRequest;
 import pl.jania1857.fmsapi.service.UserService;
 import pl.jania1857.fmsapi.service.VehicleService;
 

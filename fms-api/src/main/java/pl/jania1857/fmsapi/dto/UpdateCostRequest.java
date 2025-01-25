@@ -1,4 +1,4 @@
-package pl.jania1857.fmsapi.service;
+package pl.jania1857.fmsapi.dto;
 
 import java.math.BigDecimal;
 

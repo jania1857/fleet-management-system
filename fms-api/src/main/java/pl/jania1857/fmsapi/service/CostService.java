@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.jania1857.fmsapi.dto.CostDto;
+import pl.jania1857.fmsapi.dto.UpdateCostRequest;
 import pl.jania1857.fmsapi.model.Cost;
 import pl.jania1857.fmsapi.model.Vehicle;
 import pl.jania1857.fmsapi.repository.CostRepository;
