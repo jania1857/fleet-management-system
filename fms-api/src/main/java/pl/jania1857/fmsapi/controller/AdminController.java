@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
-import pl.jania1857.fmsapi.service.CostService;
-import pl.jania1857.fmsapi.service.InspectionService;
-import pl.jania1857.fmsapi.service.RefuelingService;
-import pl.jania1857.fmsapi.service.UserService;
+import pl.jania1857.fmsapi.service.*;
 
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class AdminController {
     private final CostService costService;
     private final RefuelingService refuelingService;
     private final InspectionService inspectionService;
+    private final AssignmentService assignmentService;
 
     @PostMapping("/createUser")
     public ResponseEntity<GeneratedUserCredentialsResponse> createUser(
@@ -90,6 +88,14 @@ public class AdminController {
             @PathVariable Integer inspectionId
     ) {
         inspectionService.deleteInspection(inspectionId);
+        return noContent().build();
+    }
+
+    @DeleteMapping("/deleteAssignment/{assignmentId}")
+    public ResponseEntity<Void> deleteAssignment(
+            @PathVariable Integer assignmentId
+    ) {
+        assignmentService.deleteAssignment(assignmentId);
         return noContent().build();
     }
 }

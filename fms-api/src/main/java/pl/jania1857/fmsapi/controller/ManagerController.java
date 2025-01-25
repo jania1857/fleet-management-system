@@ -21,6 +21,7 @@ public class ManagerController {
     private final CostService costService;
     private final RefuelingService refuelingService;
     private final InspectionService inspectionService;
+    private final AssignmentService assignmentService;
 
     @PostMapping("/createVehicle")
     public ResponseEntity<VehicleDto> createVehicle(
@@ -102,7 +103,7 @@ public class ManagerController {
     public ResponseEntity<AssignmentDto> endAssignment(
             @PathVariable Integer assignmentId
     ) {
-        return ok(vehicleService.endAssignment(assignmentId));
+        return ok(assignmentService.endAssignment(assignmentId));
     }
 
     @GetMapping("/getUserAssignments/{userId}")
@@ -170,5 +171,20 @@ public class ManagerController {
     @PatchMapping("/updateInspection/{inspectionId}")
     public ResponseEntity<InspectionDto> updateInspection(@PathVariable Integer inspectionId, @RequestBody UpdateInspectionRequest request) {
         return ok(inspectionService.updateInspection(inspectionId, request));
+    }
+
+    @GetMapping("/getAllAssignments")
+    public ResponseEntity<List<AssignmentDto>> getAllAssignments() {
+        return ok(assignmentService.getAllAssignments());
+    }
+
+    @GetMapping("/getAssignmentById/{assignmentId}")
+    public ResponseEntity<AssignmentDto> getAssignmentById(@PathVariable Integer assignmentId) {
+        return ok(assignmentService.getAssignmentById(assignmentId));
+    }
+
+    @GetMapping("/getAssignmentsForVehicle/{vehicleId}")
+    public ResponseEntity<List<AssignmentDto>> getAssignmentsForVehicle(@PathVariable Integer vehicleId) {
+        return ok(assignmentService.getAssignmentsForVehicle(vehicleId));
     }
 }

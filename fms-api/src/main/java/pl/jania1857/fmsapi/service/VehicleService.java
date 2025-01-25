@@ -364,17 +364,5 @@ public class VehicleService {
         return assignmentMapper.toDto(savedAssignment);
     }
 
-    public AssignmentDto endAssignment(
-            Integer assignmentId
-    ) {
-        Assignment assignment = assignmentRepository.findById(assignmentId)
-                .orElseThrow(() -> new EntityNotFoundException("Assignment with id " + assignmentId + " not found"));
 
-        if (assignment.getEndTime() != null) {
-            throw new IllegalArgumentException("Assignment with id " + assignmentId + " has been already closed!");
-        }
-        assignment.setEndTime(LocalDateTime.now());
-        Assignment savedAssignment = assignmentRepository.save(assignment);
-        return assignmentMapper.toDto(savedAssignment);
-    }
 }
