@@ -21,6 +21,7 @@ public class AdminController {
     private final RefuelingService refuelingService;
     private final InspectionService inspectionService;
     private final AssignmentService assignmentService;
+    private final ServiceService serviceService;
 
     @PostMapping("/createUser")
     public ResponseEntity<GeneratedUserCredentialsResponse> createUser(
@@ -96,6 +97,14 @@ public class AdminController {
             @PathVariable Integer assignmentId
     ) {
         assignmentService.deleteAssignment(assignmentId);
+        return noContent().build();
+    }
+
+    @DeleteMapping("/deleteService/{serviceId}")
+    public ResponseEntity<Void> deleteService(
+            @PathVariable Integer serviceId
+    ) {
+        serviceService.deleteService(serviceId);
         return noContent().build();
     }
 }
