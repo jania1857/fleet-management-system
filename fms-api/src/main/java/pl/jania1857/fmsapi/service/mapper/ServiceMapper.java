@@ -15,7 +15,9 @@ public class ServiceMapper {
                 service.getDescription(),
                 service.getMileageAtTheTime(),
                 service.getVehicle().getId(),
-                costMapper.toDto(service.getCost())
+                service.getCost() == null
+                        ? null
+                        : costMapper.toDto(service.getCost())
         );
     }
 }

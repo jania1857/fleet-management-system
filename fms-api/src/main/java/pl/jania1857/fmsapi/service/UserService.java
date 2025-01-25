@@ -5,22 +5,29 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.dto.all.ChangePasswordRequest;
-import pl.jania1857.fmsapi.dto.CreateUserRequest;
-import pl.jania1857.fmsapi.dto.CreateUserResponse;
+import pl.jania1857.fmsapi.model.Assignment;
 import pl.jania1857.fmsapi.model.User;
 import pl.jania1857.fmsapi.repository.UserRepository;
+import pl.jania1857.fmsapi.service.mapper.UserMapper;
+import pl.jania1857.fmsapi.service.mapper.VehicleMapper;
+import pl.jania1857.fmsapi.utils.Role;
 
 import java.security.Principal;
 import java.security.SecureRandom;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final VehicleMapper vehicleMapper;
+    private final UserMapper userMapper;
 
-    public CreateUserResponse createUser(CreateUserRequest request) {
+    public GeneratedUserCredentialsResponse createUser(CreateUserRequest request) {
 
         String password = generateSecurePassword();
         String username = generateUsername(request.firstname(), request.lastname());
@@ -35,13 +42,13 @@ public class UserService {
 
         userRepository.save(user);
 
-        return new CreateUserResponse(username, password);
+        return new GeneratedUserCredentialsResponse(username, password);
     }
 
     public void changePassword(ChangePasswordRequest request, Principal principal) {
         String username = principal.getName();
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(username));
+                .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " not found"));
 
         if (!passwordEncoder.matches(request.oldPassword(), user.getPassword())) {
             throw new BadCredentialsException("Old password does not match");
@@ -55,10 +62,94 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public GeneratedUserCredentialsResponse resetPasswordForUser(Integer userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException(String.valueOf(userId)));
+
+        user.setPassword(passwordEncoder.encode(generateSecurePassword()));
+        User savedUser = userRepository.save(user);
+        return new GeneratedUserCredentialsResponse(user.getUsername(), savedUser.getPassword());
+    }
+
+    public List<UserAssignmentResponse> getUserAssignments(Integer userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException(String.valueOf(userId)));
+
+        List<Assignment> assignments = user.getAssignments();
+
+        return assignments.stream().map(
+                assignment -> new UserAssignmentResponse(
+                        vehicleMapper.toDto(assignment.getVehicle()),
+                        assignment.getStartTime(),
+                        assignment.getEndTime()
+                )
+        ).toList();
+    }
+
+    public List<UserAssignmentResponse> getMyAssignments(Principal principal) {
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " not found"));
+
+        List<Assignment> assignments = user.getAssignments();
+
+        return assignments.stream().map(
+                assignment -> new UserAssignmentResponse(
+                        vehicleMapper.toDto(assignment.getVehicle()),
+                        assignment.getStartTime(),
+                        assignment.getEndTime()
+                )
+        ).toList();
+    }
+
+    public UserDto changeUserData(Integer userId, ChangeUserDataRequest request) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException(String.valueOf(userId)));
+
+        user.setFirstname(request.firstname());
+        user.setLastname(request.lastname());
+
+        User savedUser = userRepository.save(user);
+
+        return userMapper.toDto(savedUser);
+    }
+
+    public UserDto changeUserRole(Integer userId, ChangeUserRoleRequest request) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException(String.valueOf(userId)));
+
+        user.setRole(request.newRole());
+
+        User savedUser = userRepository.save(user);
+
+        return userMapper.toDto(savedUser);
+    }
+
+    public List<UserDto> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(userMapper::toDto).toList();
+    }
+
+    public List<UserDto> getDrivers() {
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                .filter(user -> user.getRole() == Role.DRIVER)
+                .map(userMapper::toDto).toList();
+    }
+
+    public List<UserDto> getManagers() {
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                .filter(user -> user.getRole() == Role.MANAGER)
+                .map(userMapper::toDto).toList();
+    }
+
+    public void deleteUser(Integer userId) {
+        userRepository.deleteById(userId);
+    }
 
 
-
-
+    /// PRIVATE METHODS
     private String generateUsername(String firstname, String lastname) {
         String baseUsername = (firstname.length() > 3 ? firstname.substring(0, 3).toLowerCase() : firstname.toLowerCase()) +
                 (lastname.length() > 3 ? lastname.substring(0, 3).toLowerCase() : lastname.toLowerCase());
@@ -72,6 +163,7 @@ public class UserService {
 
         return uniqueUsername;
     }
+
     private String generateSecurePassword() {
         String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -93,6 +185,7 @@ public class UserService {
 
         return shuffleString(password.toString());
     }
+
     private String shuffleString(String input) {
         SecureRandom random = new SecureRandom();
         char[] array = input.toCharArray();

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -37,6 +37,6 @@ public class Cost {
     @OneToOne(mappedBy = "cost")
     private Insurance insurance;
 
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime timestamp;
 }

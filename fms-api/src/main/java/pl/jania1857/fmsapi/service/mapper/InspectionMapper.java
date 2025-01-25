@@ -18,7 +18,9 @@ public class InspectionMapper {
                 inspection.getDescription(),
                 inspection.getPassed(),
                 inspection.getVehicle().getId(),
-                costMapper.toDto(inspection.getCost())
+                inspection.getCost() == null
+                        ? null
+                        : costMapper.toDto(inspection.getCost())
         );
     }
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import pl.jania1857.fmsapi.utils.Status;
 
@@ -26,7 +27,7 @@ public class StatusChange {
     @Enumerated(EnumType.STRING)
     private Status newStatus;
 
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime timestamp;
 
     @ManyToOne

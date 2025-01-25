@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import pl.jania1857.fmsapi.utils.FuelType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -39,25 +40,69 @@ public class Vehicle {
     @NotNull
     private Integer displacement;
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<StatusChange> statusChanges;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StatusChange> statusChanges = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Refueling> refuelings;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Refueling> refuelings = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Inspection> inspections;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Inspection> inspections = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Service> services;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Service> services = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Insurance> insurances;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Insurance> insurances = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<MileageChange> mileageChanges;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MileageChange> mileageChanges = new ArrayList<>();
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Assignment> assignments;
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Assignment> assignments = new ArrayList<>();
+
+    public void addStatusChange(StatusChange statusChange) {
+        if (statusChanges == null) {
+            statusChanges = new ArrayList<>();
+        }
+        statusChanges.add(statusChange);
+    }
+
+    public void addRefueling(Refueling refueling) {
+        if (refuelings == null) {
+            refuelings = new ArrayList<>();
+        }
+        refuelings.add(refueling);
+    }
+    public void addInspection(Inspection inspection) {
+        if (inspections == null) {
+            inspections = new ArrayList<>();
+        }
+        inspections.add(inspection);
+    }
+    public void addService(Service service) {
+        if (services == null) {
+            services = new ArrayList<>();
+        }
+        services.add(service);
+    }
+    public void addInsurance(Insurance insurance) {
+        if (insurances == null) {
+            insurances = new ArrayList<>();
+        }
+        insurances.add(insurance);
+    }
+    public void addMileageChange(MileageChange mileageChange) {
+        if (mileageChanges == null) {
+            mileageChanges = new ArrayList<>();
+        }
+        mileageChanges.add(mileageChange);
+    }
+    public void addAssignment(Assignment assignment) {
+        if (assignments == null) {
+            assignments = new ArrayList<>();
+        }
+        assignments.add(assignment);
+    }
 
 }

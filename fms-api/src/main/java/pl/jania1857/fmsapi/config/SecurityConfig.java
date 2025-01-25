@@ -32,13 +32,25 @@ public class SecurityConfig {
 
                         /// PUBLIC
                         .requestMatchers(
-                                "/api/v1/public/**"
+                                "/api/v1/public/**",
+                                /// SWAGGER ///
+                                "/v2/api-docs",
+                                "/v3/api-docs",
+                                "/v3/api-docs/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/configuration/ui",
+                                "/configuration/security",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/webjars/**"
+                                ///////////////
                         ).permitAll()
 
                         /// MANAGER
                         .requestMatchers(
                                 "/api/v1/manager/**"
-                        ).hasAnyAuthority("ADMIN", "DRIVER")
+                        ).hasAnyAuthority("ADMIN", "MANAGER")
 
                         /// DRIVER
                         .requestMatchers(

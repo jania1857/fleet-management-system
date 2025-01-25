@@ -19,7 +19,9 @@ public class InsuranceMapper {
                 insurance.getStartDate(),
                 insurance.getEndDate(),
                 insurance.getVehicle().getId(),
-                costMapper.toDto(insurance.getCost())
+                insurance.getCost() == null
+                        ? null
+                        : costMapper.toDto(insurance.getCost())
         );
     }
 }

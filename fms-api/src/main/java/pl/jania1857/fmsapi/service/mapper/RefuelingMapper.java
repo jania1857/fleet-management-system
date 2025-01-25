@@ -19,7 +19,9 @@ public class RefuelingMapper {
                 refueling.getAmount(),
                 refueling.getTimestamp(),
                 refueling.getVehicle().getId(),
-                costMapper.toDto(refueling.getCost())
+                refueling.getCost() == null
+                        ? null
+                        : costMapper.toDto(refueling.getCost())
         );
     }
 }

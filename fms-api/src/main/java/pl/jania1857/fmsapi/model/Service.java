@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -29,7 +29,7 @@ public class Service {
     @NotNull
     private Integer mileageAtTheTime;
 
-    @CreatedDate
+    @CreationTimestamp
     private LocalDateTime timestamp;
 
     @ManyToOne(cascade = CascadeType.ALL)

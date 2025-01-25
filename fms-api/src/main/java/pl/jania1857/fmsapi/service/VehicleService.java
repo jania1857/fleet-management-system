@@ -14,6 +14,7 @@ import pl.jania1857.fmsapi.utils.Status;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -22,7 +23,6 @@ import java.util.List;
 public class VehicleService {
     private final VehicleRepository vehicleRepository;
     private final VehicleMapper vehicleMapper;
-    private final StatusChangeMapper statusChangeMapper;
     private final RefuelingMapper refuelingMapper;
     private final InspectionMapper inspectionMapper;
     private final ServiceMapper serviceMapper;
@@ -47,10 +47,12 @@ public class VehicleService {
 
         MileageChange firstMileage = MileageChange.builder()
                 .newMileage(request.mileage())
+                .vehicle(vehicle)
                 .build();
 
         StatusChange firstStatus = StatusChange.builder()
                 .newStatus(Status.READY)
+                .vehicle(vehicle)
                 .build();
 
         Inspection firstInspection = Inspection.builder()
@@ -59,11 +61,27 @@ public class VehicleService {
                 .description("Kupiono z przeglądem")
                 .passed(true)
                 .cost(null)
+                .vehicle(vehicle)
                 .build();
 
-        vehicle.getMileageChanges().add(firstMileage);
-        vehicle.getStatusChanges().add(firstStatus);
-        vehicle.getInspections().add(firstInspection);
+        Insurance firstInsurance = Insurance.builder()
+                .type(request.insuranceType())
+                .number(request.insuranceNumber())
+                .description("Kupiono z ubezpieczeniem")
+                .insurer(request.insurer())
+                .startDate(request.insuranceStart())
+                .endDate(request.insuranceEnd())
+                .cost(null)
+                .vehicle(vehicle)
+                .build();
+
+        vehicle.addStatusChange(firstStatus);
+        vehicle.addInspection(firstInspection);
+        vehicle.addInsurance(firstInsurance);
+        vehicle.addMileageChange(firstMileage);
+        vehicle.setRefuelings(new ArrayList<>());
+        vehicle.setServices(new ArrayList<>());
+        vehicle.setAssignments(new ArrayList<>());
 
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
 
@@ -100,6 +118,10 @@ public class VehicleService {
     public List<VehicleDto> getAllVehicles() {
         List<Vehicle> vehicles = vehicleRepository.findAll();
         return vehicles.stream().map(vehicleMapper::toDto).toList();
+    }
+
+    public void deleteVehicleById(Integer vehicleId) {
+        vehicleRepository.deleteById(vehicleId);
     }
 
     public ChangeStatusResponse changeStatusForVehicle(
