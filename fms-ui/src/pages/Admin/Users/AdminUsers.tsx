@@ -29,7 +29,9 @@ const AdminUsers: React.FC = () => {
             <div className="flex mb-5 justify-between">
                 <h1 className="text-left text-3xl">Lista użytkowników</h1>
                 <button
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => navigate("new")}
+                >
                     Dodaj użytkownika
                 </button>
             </div>

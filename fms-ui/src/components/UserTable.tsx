@@ -1,6 +1,7 @@
 import React from "react";
 import {UserDto} from "../generated-client";
 import {useNavigate} from "react-router-dom";
+import {adminApi} from "../api/apiClient.ts";
 
 interface UserTableProps {
     users: UserDto[];
@@ -12,6 +13,19 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin}) => {
     const navigate = useNavigate();
 
     const navigateUri: string = isAdmin ? "/admin/users/" : "/manager/users/";
+
+    const handleDelete = async (userID: number | undefined) => {
+        if (!userID) {
+            alert("Brak ID dla użytkownika")
+            return;
+        }
+        const confirmDelete = window.confirm(`Czy na pewno chcesz usunąć użytkownika o ID: ${userID}?`);
+        if (!confirmDelete) return;
+
+        await adminApi.deleteUser(userID);
+        alert(`Użytkownik o ID ${userID} został usunięty`)
+        users = users.filter(user => user.id !== userID);
+    }
 
     return (
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
@@ -56,7 +70,10 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin}) => {
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
                                     Edytuj
                                 </button>
-                                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                <button
+                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                    onClick={() => handleDelete(user.id)}
+                                >
                                     Usuń
                                 </button>
                             </td>

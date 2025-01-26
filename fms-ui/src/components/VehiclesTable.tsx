@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import {VehicleDto} from "../generated-client";
 import {getVehicleMileage, getVehicleStatus} from "../util/utils.ts";
+import {managerApi} from "../api/apiClient.ts";
 
 interface VehicleTableProps {
     isAdmin: boolean;
@@ -12,6 +13,19 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
     const navigate = useNavigate();
 
     const navigateUri: string = isAdmin ? "/admin/cars/" : "/manager/cars/";
+    const handleDelete = async (vehicleId: number | undefined) => {
+        if (!vehicleId) {
+            alert("Brak ID dla użytkownika")
+            return;
+        }
+        const confirmDelete = window.confirm(`Czy na pewno chcesz usunąć użytkownika o ID: ${vehicleId}?`);
+        if (!confirmDelete) return;
+
+        await managerApi.deleteVehicle(vehicleId);
+        alert(`Użytkownik o ID ${vehicleId} został usunięty`)
+        vehicles = vehicles.filter(vehicle => vehicle.id !== vehicleId);
+    }
+
 
     return (
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
@@ -93,7 +107,10 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
                                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         Edytuj
                                     </button>
-                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    <button
+                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                        onClick={() => handleDelete(vehicle.id)}
+                                    >
                                         Usuń
                                     </button>
                                 </td>

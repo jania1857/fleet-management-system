@@ -9,6 +9,8 @@ import AdminCars from "./pages/Admin/Cars/AdminCars.tsx";
 import CarDetails from "./pages/Admin/Cars/CarDetails.tsx";
 import AdminUsers from "./pages/Admin/Users/AdminUsers.tsx";
 import UserDetails from "./pages/Admin/Users/UserDetails.tsx";
+import NewUser from "./pages/Admin/Users/NewUser.tsx";
+import NewCar from "./pages/Admin/Cars/NewCar.tsx";
 
 function App() {
     return (
@@ -29,12 +31,20 @@ function App() {
                         element={<CarDetails />}
                     />
                     <Route
+                        path="cars/new"
+                        element={<NewCar />}
+                    />
+                    <Route
                         path="users"
                         element={<AdminUsers/>}
                     />
                     <Route
                         path="users/:id"
                         element={<UserDetails />}
+                    />
+                    <Route
+                        path="users/new"
+                        element={<NewUser />}
                     />
                 </Route>
 
