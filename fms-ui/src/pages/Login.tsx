@@ -26,6 +26,7 @@ const Login: React.FC = () => {
             localStorage.setItem("role", response.data.userData.role.toLowerCase());
 
             window.location.href = `/${response.data.userData.role.toLowerCase()}/dashboard`;
+            console.log(response.data.userData);
         } catch (error: any) {
             setError(error.response?.data?.message || "Wystąpił błąd logowania. Spróbuj ponownie później");
         } finally {

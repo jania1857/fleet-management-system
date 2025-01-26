@@ -1,30 +1,55 @@
-import React from "react";
-import {Vehicle, vehicles} from "../../../mocks/cars.ts";
+import React, {useEffect, useState} from "react";
 import image from "../../../assets/placeholder.jpg";
 import {useParams} from "react-router-dom";
-import Accordion from "../../../components/Accordion.tsx";
-import RefuelingTable from "../../../components/RefuelingTable.tsx";
-import {refuelings} from "../../../mocks/refuelings.ts";
-import FuelConsumptionChart from "../../../components/FuelConsumptionChart.tsx";
+import {VehicleDto} from "../../../generated-client";
+import {allApi} from "../../../api/apiClient.ts";
+import {getVehicleMileage, getVehicleStatus} from "../../../util/utils.ts";
 
 const CarDetails: React.FC = () => {
 
-    const {id} = useParams<{ id: string }>();
-    const vehicle: Vehicle = vehicles.find(v => v.id.toString() === id) as Vehicle;
+    const [vehicle, setVehicle] = useState<VehicleDto>();
+    const [loading, setLoading] = useState(true);
 
-    if (!vehicle) {
+    const {id} = useParams<{ id: string }>();
+    if (!id) {
         return (
-            <h1 className="text-5xl text-red-500">[404] Brak pojazdu o podanym ID</h1>
+            <h1 className="text-5xl text-red-500">Nie przekazano ID pojazdu</h1>
         )
+    }
+    const numberId: number = +id;
+
+    useEffect(() => {
+        allApi.getVehicle(numberId || 1)
+            .then(response => {
+                setVehicle(response.data);
+            })
+            .catch((error) => {
+                return (
+                    <h1 className="text-5xl text-red-500">[404] Brak pojazdu o podanym ID - ${error}</h1>
+                )
+            })
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return (
+            <p>Ładowanie</p>
+        )
+    }
+    if(!vehicle) {
+        return (
+            <h1 className="text-5xl text-red-500">[404] Brak pojazdu o podanym ID - ${id}</h1>
+        )
+
     }
 
     return (
         <>
-            <h1 className="text-5xl text-left font-bold">{vehicle.make} {vehicle.model} {vehicle.year}</h1>
+            <h1 className="text-5xl text-left font-bold">{vehicle.manufacturer} {vehicle.model} {vehicle.year}</h1>
             <hr className="border-gray-800"/>
             <div className="flex justify-between">
                 <h3 className="text-xl text-left">ID: {vehicle.id} | VIN: {vehicle.vin}</h3>
-                <h3 className="text-xl text-left">Aktualny przebieg: {vehicle.mileage} km</h3>
+                <h3 className="text-xl text-left">Aktualny przebieg: {getVehicleMileage(vehicle)?.newMileage} km</h3>
             </div>
             <div className="flex text-left gap-20">
                 <img
@@ -36,7 +61,7 @@ const CarDetails: React.FC = () => {
                     <tbody>
                     <tr>
                         <td className="font-bold">Marka:</td>
-                        <td>{vehicle.make}</td>
+                        <td>{vehicle.manufacturer}</td>
                     </tr>
                     <tr>
                         <td className="font-bold">Model:</td>
@@ -56,11 +81,11 @@ const CarDetails: React.FC = () => {
                     </tr>
                     <tr>
                         <td className="font-bold">Status:</td>
-                        <td>{vehicle.status}</td>
+                        <td>{getVehicleStatus(vehicle)?.newStatus}</td>
                     </tr>
                     <tr>
                         <td className="font-bold">Rodzaj napędu:</td>
-                        <td>{vehicle.fuel}</td>
+                        <td>{vehicle.fuelType}</td>
                     </tr>
                     <tr>
                         <td className="font-bold">Pojemność silnika:&nbsp;</td>
@@ -68,18 +93,12 @@ const CarDetails: React.FC = () => {
                     </tr>
                     <tr>
                         <td className="font-bold">Przebieg:</td>
-                        <td>{vehicle.mileage} km</td>
+                        <td>{getVehicleMileage(vehicle)?.newMileage} km</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <hr className="mt-5 mb-5 border-gray-800"/>
-            <Accordion title="Historia przebiegu">
-                <RefuelingTable isAdmin={true} refuelings={refuelings} />
-            </Accordion>
-            <Accordion title="Wykres paliwa">
-                <FuelConsumptionChart />
-            </Accordion>
         </>
     )
 }

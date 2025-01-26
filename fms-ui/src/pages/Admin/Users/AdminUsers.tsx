@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {VehicleDto} from "../../../generated-client";
-import {managerApi} from "../../../api/apiClient.ts";
-import VehiclesTable from "../../../components/VehiclesTable.tsx";
+import {adminApi} from "../../../api/apiClient.ts";
+import UserTable from "../../../components/UserTable.tsx";
+import {useNavigate} from "react-router-dom";
 
-const AdminCars: React.FC = () => {
-
-    const [vehicles, setVehicles] = useState<VehicleDto[]>([]);
+const AdminUsers: React.FC = () => {
+    const [users, setUsers] = useState<VehicleDto[]>([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        managerApi.getAllVehicles()
+        adminApi.getAllUsers()
             .then((response => {
-                setVehicles(response.data);
+                setUsers(response.data);
             }))
             .catch((error) => {
                 console.error("Błąd podczas pobierania listy pojazdów: ", error);
@@ -23,19 +24,18 @@ const AdminCars: React.FC = () => {
         return <p>Ładowanie...</p>
     }
 
-
     return (
         <>
             <div className="flex mb-5 justify-between">
-                <h1 className="text-left text-3xl">Lista pojazdów</h1>
+                <h1 className="text-left text-3xl">Lista użytkowników</h1>
                 <button
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                    Dodaj pojazd
+                    Dodaj użytkownika
                 </button>
             </div>
-            <VehiclesTable isAdmin={true} vehicles={vehicles}/>
+            <UserTable isAdmin={true} users={users}/>
         </>
     )
 }
 
-export default AdminCars;
+export default AdminUsers
