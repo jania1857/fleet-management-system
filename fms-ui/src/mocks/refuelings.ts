@@ -1,0 +1,61 @@
+export interface Refueling {
+    id: number; //id
+    timestamp: string; //timestamp
+    price: number; // cena/l
+    amount: number; // ilość litrów
+    totalAmount: number; // całkowita kwota
+    mileageAtTime: number; // przebieg
+}
+
+export const refuelings: Refueling[] = [
+    { id: 1, timestamp: "2025-01-01 08:00:00", price: 5.45, amount: 50.00, totalAmount: 272.50, mileageAtTime: 1000 },
+    { id: 2, timestamp: "2025-01-08 08:00:00", price: 5.50, amount: 55.00, totalAmount: 302.50, mileageAtTime: 1600 },
+    { id: 3, timestamp: "2025-01-15 08:00:00", price: 5.42, amount: 52.00, totalAmount: 281.84, mileageAtTime: 2200 },
+    { id: 4, timestamp: "2025-01-22 08:00:00", price: 5.47, amount: 54.00, totalAmount: 295.38, mileageAtTime: 2800 },
+    { id: 5, timestamp: "2025-01-29 08:00:00", price: 5.60, amount: 60.00, totalAmount: 336.00, mileageAtTime: 3400 },
+    { id: 6, timestamp: "2025-02-05 08:00:00", price: 5.49, amount: 58.00, totalAmount: 318.42, mileageAtTime: 4000 },
+    { id: 7, timestamp: "2025-02-12 08:00:00", price: 5.52, amount: 55.00, totalAmount: 303.60, mileageAtTime: 4600 },
+    { id: 8, timestamp: "2025-02-19 08:00:00", price: 5.40, amount: 53.00, totalAmount: 286.20, mileageAtTime: 5200 },
+    { id: 9, timestamp: "2025-02-26 08:00:00", price: 5.65, amount: 57.00, totalAmount: 322.05, mileageAtTime: 5800 },
+    { id: 10, timestamp: "2025-03-05 08:00:00", price: 5.60, amount: 60.00, totalAmount: 336.00, mileageAtTime: 6400 },
+    { id: 11, timestamp: "2025-03-12 08:00:00", price: 5.55, amount: 54.00, totalAmount: 299.70, mileageAtTime: 7000 },
+    { id: 12, timestamp: "2025-03-19 08:00:00", price: 5.42, amount: 56.00, totalAmount: 303.52, mileageAtTime: 7600 },
+    { id: 13, timestamp: "2025-03-26 08:00:00", price: 5.50, amount: 58.00, totalAmount: 319.00, mileageAtTime: 8200 },
+    { id: 14, timestamp: "2025-04-02 08:00:00", price: 5.48, amount: 59.00, totalAmount: 323.32, mileageAtTime: 8800 },
+    { id: 15, timestamp: "2025-04-09 08:00:00", price: 5.43, amount: 61.00, totalAmount: 331.23, mileageAtTime: 9400 },
+    { id: 16, timestamp: "2025-04-16 08:00:00", price: 5.57, amount: 60.00, totalAmount: 334.20, mileageAtTime: 10000 },
+    { id: 17, timestamp: "2025-04-23 08:00:00", price: 5.50, amount: 55.00, totalAmount: 302.50, mileageAtTime: 10600 },
+    { id: 18, timestamp: "2025-04-30 08:00:00", price: 5.49, amount: 54.00, totalAmount: 296.46, mileageAtTime: 11200 },
+    { id: 19, timestamp: "2025-05-07 08:00:00", price: 5.42, amount: 53.00, totalAmount: 287.26, mileageAtTime: 11800 },
+    { id: 20, timestamp: "2025-05-14 08:00:00", price: 5.45, amount: 56.00, totalAmount: 305.20, mileageAtTime: 12400 },
+    { id: 21, timestamp: "2025-05-21 08:00:00", price: 5.60, amount: 57.00, totalAmount: 319.20, mileageAtTime: 13000 },
+    { id: 22, timestamp: "2025-05-28 08:00:00", price: 5.50, amount: 52.00, totalAmount: 286.00, mileageAtTime: 13600 },
+    { id: 23, timestamp: "2025-06-04 08:00:00", price: 5.48, amount: 58.00, totalAmount: 317.84, mileageAtTime: 14200 },
+    { id: 24, timestamp: "2025-06-11 08:00:00", price: 5.55, amount: 54.00, totalAmount: 299.70, mileageAtTime: 14800 },
+    { id: 25, timestamp: "2025-06-18 08:00:00", price: 5.45, amount: 60.00, totalAmount: 327.00, mileageAtTime: 15400 },
+    { id: 26, timestamp: "2025-06-25 08:00:00", price: 5.49, amount: 56.00, totalAmount: 307.44, mileageAtTime: 16000 },
+    { id: 27, timestamp: "2025-07-02 08:00:00", price: 5.50, amount: 55.00, totalAmount: 302.50, mileageAtTime: 16600 },
+    { id: 28, timestamp: "2025-07-09 08:00:00", price: 5.58, amount: 53.00, totalAmount: 295.74, mileageAtTime: 17200 },
+    { id: 29, timestamp: "2025-07-16 08:00:00", price: 5.42, amount: 57.00, totalAmount: 308.94, mileageAtTime: 17800 },
+    { id: 30, timestamp: "2025-07-23 08:00:00", price: 5.47, amount: 60.00, totalAmount: 328.20, mileageAtTime: 18400 },
+    { id: 31, timestamp: "2025-07-30 08:00:00", price: 5.43, amount: 55.00, totalAmount: 298.65, mileageAtTime: 19000 },
+    { id: 32, timestamp: "2025-08-06 08:00:00", price: 5.55, amount: 54.00, totalAmount: 299.70, mileageAtTime: 19600 },
+    { id: 33, timestamp: "2025-08-13 08:00:00", price: 5.48, amount: 59.00, totalAmount: 323.32, mileageAtTime: 20200 },
+    { id: 34, timestamp: "2025-08-20 08:00:00", price: 5.45, amount: 60.00, totalAmount: 327.00, mileageAtTime: 20800 },
+    { id: 35, timestamp: "2025-08-27 08:00:00", price: 5.50, amount: 55.00, totalAmount: 302.50, mileageAtTime: 21400 },
+    { id: 36, timestamp: "2025-09-03 08:00:00", price: 5.60, amount: 54.00, totalAmount: 302.40, mileageAtTime: 22000 },
+    { id: 37, timestamp: "2025-09-10 08:00:00", price: 5.49, amount: 53.00, totalAmount: 291.97, mileageAtTime: 22600 },
+    { id: 38, timestamp: "2025-09-17 08:00:00", price: 5.42, amount: 56.00, totalAmount: 303.52, mileageAtTime: 23200 },
+    { id: 39, timestamp: "2025-09-24 08:00:00", price: 5.47, amount: 60.00, totalAmount: 328.20, mileageAtTime: 23800 },
+    { id: 40, timestamp: "2025-10-01 08:00:00", price: 5.45, amount: 55.00, totalAmount: 299.75, mileageAtTime: 24400 },
+    { id: 41, timestamp: "2025-10-08 08:00:00", price: 5.55, amount: 54.00, totalAmount: 299.70, mileageAtTime: 25000 },
+    { id: 42, timestamp: "2025-10-15 08:00:00", price: 5.48, amount: 59.00, totalAmount: 323.32, mileageAtTime: 25600 },
+    { id: 43, timestamp: "2025-10-22 08:00:00", price: 5.50, amount: 58.00, totalAmount: 319.00, mileageAtTime: 26200 },
+    { id: 44, timestamp: "2025-10-29 08:00:00", price: 5.60, amount: 57.00, totalAmount: 319.20, mileageAtTime: 26800 },
+    { id: 45, timestamp: "2025-11-05 08:00:00", price: 5.42, amount: 56.00, totalAmount: 303.52, mileageAtTime: 27400 },
+    { id: 46, timestamp: "2025-11-12 08:00:00", price: 5.49, amount: 55.00, totalAmount: 302.95, mileageAtTime: 28000 },
+    { id: 47, timestamp: "2025-11-19 08:00:00", price: 5.45, amount: 54.00, totalAmount: 294.30, mileageAtTime: 28600 },
+    { id: 48, timestamp: "2025-11-26 08:00:00", price: 5.55, amount: 53.00, totalAmount: 294.15, mileageAtTime: 29200 },
+    { id: 49, timestamp: "2025-12-03 08:00:00", price: 5.47, amount: 59.00, totalAmount: 323.32, mileageAtTime: 29800 },
+    { id: 50, timestamp: "2025-12-10 08:00:00", price: 5.45, amount: 60.00, totalAmount: 327.00, mileageAtTime: 30400 },
+];
