@@ -14,6 +14,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 @RequestMapping("/api/v1/manager")
 public class ManagerController {
     private final VehicleService vehicleService;
