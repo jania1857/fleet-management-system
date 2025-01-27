@@ -9,6 +9,7 @@ import pl.jania1857.fmsapi.dto.publicdto.AuthenticationRequest;
 import pl.jania1857.fmsapi.dto.publicdto.AuthenticationResponse;
 import pl.jania1857.fmsapi.model.User;
 import pl.jania1857.fmsapi.repository.UserRepository;
+import pl.jania1857.fmsapi.service.mapper.UserMapper;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +18,7 @@ public class AuthenticationService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final UserMapper userMapper;
 
     public AuthenticationResponse login(AuthenticationRequest request) {
         authenticationManager.authenticate(
@@ -30,6 +32,6 @@ public class AuthenticationService {
                 .orElseThrow(() -> new UsernameNotFoundException(request.username()));
         String token = jwtService.generateToken(user);
 
-        return new AuthenticationResponse(token);
+        return new AuthenticationResponse(token, userMapper.toDto(user));
     }
 }
