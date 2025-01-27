@@ -12,6 +12,7 @@ const Sidebar: React.FC<SidebarProps> = ({role}) => {
             {name: "Dashboard", path: "/admin/dashboard"},
             {name: "Użytkownicy", path: "/admin/users"},
             {name: "Pojazdy", path: "/admin/cars"},
+            {name: "Przypisania", path: "/admin/assignments"},
 
         ],
         manager: [

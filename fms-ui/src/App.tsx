@@ -11,6 +11,8 @@ import AdminUsers from "./pages/Admin/Users/AdminUsers.tsx";
 import UserDetails from "./pages/Admin/Users/UserDetails.tsx";
 import NewUser from "./pages/Admin/Users/NewUser.tsx";
 import NewCar from "./pages/Admin/Cars/NewCar.tsx";
+import AdminAssignments from "./pages/Admin/Assignments/AdminAssignments.tsx";
+import {NewAssignment} from "./pages/Admin/Assignments/NewAssignment.tsx";
 
 function App() {
     return (
@@ -45,6 +47,14 @@ function App() {
                     <Route
                         path="users/new"
                         element={<NewUser />}
+                    />
+                    <Route
+                        path="assignments"
+                        element={<AdminAssignments />}
+                    />
+                    <Route
+                        path="assignments/new"
+                        element={<NewAssignment />}
                     />
                 </Route>
 

@@ -35,3 +35,8 @@ export const convertDateToDateTime = (date: Date) => {
 
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
+
+export const isVehicleAssignable = (vehicle: VehicleDto) => {
+    const status = getVehicleStatus(vehicle);
+    return status?.newStatus === "READY" || status?.newStatus === "REQUIRES_ATTENTION";
+}
