@@ -9,6 +9,7 @@ import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.dto.all.ChangePasswordRequest;
 import pl.jania1857.fmsapi.model.Assignment;
 import pl.jania1857.fmsapi.model.User;
+import pl.jania1857.fmsapi.model.Vehicle;
 import pl.jania1857.fmsapi.repository.UserRepository;
 import pl.jania1857.fmsapi.service.mapper.UserMapper;
 import pl.jania1857.fmsapi.service.mapper.VehicleMapper;
@@ -43,6 +44,23 @@ public class UserService {
         userRepository.save(user);
 
         return new GeneratedUserCredentialsResponse(username, password);
+    }
+
+    public CreateIotAccountResponse newIotAccount(Vehicle vehicle) {
+        String password = generateSecurePassword();
+        String firstname = vehicle.getManufacturer();
+        String lastname = vehicle.getModel();
+        String username = generateUsername(firstname, lastname);
+
+        User iotUser = new User();
+
+        iotUser.setFirstname(firstname);
+        iotUser.setLastname(lastname);
+        iotUser.setUsername(username);
+        iotUser.setPassword(passwordEncoder.encode(password));
+        iotUser.setRole(Role.IOT);
+
+        return new CreateIotAccountResponse(iotUser, password);
     }
 
     public void changePassword(ChangePasswordRequest request, Principal principal) {

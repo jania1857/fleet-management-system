@@ -30,9 +30,9 @@ public class VehicleService {
     private final UserRepository userRepository;
     private final AssignmentRepository assignmentRepository;
     private final CostRepository costRepository;
-    private final InsuranceRepository insuranceRepository;
+    private final UserService userService;
 
-    public VehicleDto createVehicle(
+    public CreateVehicleResponse createVehicle(
             CreateVehicleRequest request
     ) {
         Vehicle vehicle = Vehicle.builder()
@@ -44,6 +44,10 @@ public class VehicleService {
                 .fuelType(request.fuelType())
                 .displacement(request.displacement())
                 .build();
+
+        CreateIotAccountResponse created = userService.newIotAccount(vehicle);
+        User iotUser = created.iotUser();
+        vehicle.setIotDevice(iotUser);
 
         MileageChange firstMileage = MileageChange.builder()
                 .newMileage(request.mileage())
@@ -85,7 +89,26 @@ public class VehicleService {
 
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
 
-        return vehicleMapper.toDto(savedVehicle);
+        VehicleDto vehicleDto = vehicleMapper.toDto(savedVehicle);
+        return new CreateVehicleResponse(
+                vehicleDto.id(),
+                vehicleDto.manufacturer(),
+                vehicleDto.model(),
+                vehicleDto.year(),
+                vehicleDto.registrationNumber(),
+                vehicleDto.vin(),
+                vehicleDto.fuelType(),
+                vehicleDto.displacement(),
+                vehicleDto.statusChanges(),
+                vehicleDto.refuelings(),
+                vehicleDto.inspections(),
+                vehicleDto.services(),
+                vehicleDto.insurances(),
+                vehicleDto.mileageChanges(),
+                vehicleDto.assignments(),
+                iotUser.getUsername(),
+                created.password()
+        );
     }
 
     public VehicleDto updateVehicle(

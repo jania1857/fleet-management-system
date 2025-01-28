@@ -63,6 +63,11 @@ public class SecurityConfig {
                                 "/api/v1/driver/**"
                         ).hasAnyAuthority("ADMIN", "DRIVER")
 
+                        /// IOT
+                        .requestMatchers(
+                                "/api/v1/iot/**"
+                        ).hasAnyAuthority("ADMIN", "IOT")
+
                         /// ADMIN ONLY
                         .requestMatchers(
                                 "/api/v1/admin/**"

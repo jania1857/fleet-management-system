@@ -27,7 +27,7 @@ public class ManagerController {
     private final InsuranceService insuranceService;
 
     @PostMapping("/createVehicle")
-    public ResponseEntity<VehicleDto> createVehicle(
+    public ResponseEntity<CreateVehicleResponse> createVehicle(
             @RequestBody CreateVehicleRequest request
     ) {
         return ok(vehicleService.createVehicle(request));

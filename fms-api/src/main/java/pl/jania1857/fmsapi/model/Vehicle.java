@@ -40,6 +40,10 @@ public class Vehicle {
     @NotNull
     private Integer displacement;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "iot_device_id")
+    private User iotDevice;
+
     @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StatusChange> statusChanges = new ArrayList<>();
 
