@@ -1,10 +1,38 @@
 import obd
 import time
+import requests
 
-def calculateDistance(speed, time):
-    speedKmh = speed.value.to('km/h').magnitude
-    return ((speedKmh / 3.6 * time) / 1000)
+def calculate_distance(input_speed, input_time):
+    speed_kmh = input_speed.value.magnitude
+    return (speed_kmh / 3.6 * input_time) / 1000
+def authenticate():
+    auth_payload = {
+        "username": "merspr",
+        "password": "C5YBIb;J"
+    }
 
+    auth_response = requests.post("http://localhost:8080/api/v1/public/login", json=auth_payload)
+    return auth_response.json()['token']
+def send_new_mileage(input_mileage):
+    headers = {
+        "Authorization": "Bearer " + authenticate(),
+        "accept": "*/*"
+    }
+    try:
+        new_mileage_response = requests.post(f"http://localhost:8080/api/v1/iot/newMileageChangeIOT?newMileage={input_mileage}", headers=headers)
+        new_mileage_response.raise_for_status()
+        print(new_mileage_response.status_code)
+    except requests.exceptions.Timeout:
+        print("Błąd: Przekroczono limit czasu")
+
+    except requests.exceptions.ConnectionError:
+        print("Błąd: Problem z połączeniem")
+
+    except requests.exceptions.HTTPError as err:
+        print(f"Błąd HTTP: {err.response.status_code} - {err}")
+
+    except requests.exceptions.RequestException as err:
+        print(f"Nieznany błąd: {err}")
 
 
 connection = obd.OBD(portstr="COM6", baudrate=38400) # Połączenie z interfejsem OBD
@@ -17,8 +45,10 @@ if connection.is_connected():
     except FileNotFoundError:
         total_distance = 0
 
-    iterationTime = 1
-    startTime = time.perf_counter()
+    iteration_time = 1
+    start_time = time.perf_counter()
+    last_mileage_update_time = start_time
+    mileage_update_interval_seconds = 120
 
     while True:
 
@@ -28,15 +58,12 @@ if connection.is_connected():
             continue
 
         # reset licznika iteracji
-        iterationTime = time.perf_counter() - startTime
-        startTime = time.perf_counter()
+        iteration_time = time.perf_counter() - start_time
+        start_time = time.perf_counter()
 
         # obliczenie przejechanego dystansu
-        distanceTravelled = calculateDistance(speed, iterationTime)
-        total_distance += distanceTravelled
-
-        print(f"{speed.value}")
-        print(f"{total_distance:.2f}")
+        distance_travelled = calculate_distance(speed, iteration_time)
+        total_distance += distance_travelled
 
         try:
             with open("total_distance.tmp", "w") as file:
@@ -45,6 +72,11 @@ if connection.is_connected():
             os.replace("total_distance.tmp", "total_distance")
         except Exception as e:
             continue
+
+        if (time.perf_counter() - last_mileage_update_time) > mileage_update_interval_seconds:
+            send_new_mileage(round(total_distance))
+            print(f"Wysłano: {round(total_distance)}")
+            last_mileage_update_time = time.perf_counter()
 
         time.sleep(1)
 

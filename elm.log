@@ -2210,3 +2210,59 @@ ELM327 OBD-II adapter emulator v3.0.3 started on serial COM port "COM5".
 2025-02-03 07:49:37,882  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
 2025-02-03 07:49:37,882  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
 2025-02-03 07:49:37,882  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-04 17:44:05,341  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
+
+2025-02-04 17:44:05,435  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:06,538  root       terminate       DEBUG    Cannot close file descriptors.
+2025-02-04 17:44:06,538  root       terminate       DEBUG    Terminated.
+2025-02-04 17:44:14,639  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on serial COM port "COM4".
+
+2025-02-04 17:44:14,642  root       connect_serial  CRITICAL Error while opening serial COM 'COM4':
+could not open port 'COM4': FileNotFoundError(2, 'Nie można odnaleźć określonego pliku.', None, 2)
+2025-02-04 17:44:14,642  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:14,737  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:14,743  root       terminate       DEBUG    Cannot join current thread.
+2025-02-04 17:44:14,743  root       terminate       DEBUG    Terminated.
+2025-02-04 17:44:14,838  root       terminate       DEBUG    Cannot join current thread.
+2025-02-04 17:44:14,838  root       terminate       DEBUG    Terminated.
+2025-02-04 17:44:20,961  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on serial COM port "COM2".
+
+2025-02-04 17:44:20,964  root       connect_serial  CRITICAL Error while opening serial COM 'COM2':
+could not open port 'COM2': FileNotFoundError(2, 'Nie można odnaleźć określonego pliku.', None, 2)
+2025-02-04 17:44:20,964  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:21,060  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:21,064  root       terminate       DEBUG    Cannot join current thread.
+2025-02-04 17:44:21,064  root       terminate       DEBUG    Terminated.
+2025-02-04 17:44:21,160  root       terminate       DEBUG    Cannot join current thread.
+2025-02-04 17:44:21,161  root       terminate       DEBUG    Terminated.
+2025-02-04 17:44:53,686  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
+
+2025-02-04 17:44:53,785  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:44:54,889  root       terminate       DEBUG    Cannot close file descriptors.
+2025-02-04 17:44:54,889  root       terminate       DEBUG    Terminated.
+2025-02-04 17:56:06,851  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
+
+2025-02-04 17:56:06,946  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:56:08,053  root       terminate       DEBUG    Cannot close file descriptors.
+2025-02-04 17:56:08,053  root       terminate       DEBUG    Terminated.
+2025-02-04 17:57:48,678  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
+
+2025-02-04 17:59:21,480  root       terminate       DEBUG    Start termination procedure.
+2025-02-04 17:59:22,586  root       terminate       DEBUG    Cannot close file descriptors.
+2025-02-04 17:59:22,587  root       terminate       DEBUG    Terminated.
+2025-02-04 17:59:27,586  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
+
