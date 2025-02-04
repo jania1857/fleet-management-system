@@ -355,7 +355,67 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/VehicleDto"
+                  "$ref": "#/components/schemas/CreateVehicleResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/iot/newRefuelingIOT": {
+      "post": {
+        "tags": [
+          "iot-controller"
+        ],
+        "operationId": "newRefuelingIOT",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/NewRefuelingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefuelingDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/iot/newMileageChangeIOT": {
+      "post": {
+        "tags": [
+          "iot-controller"
+        ],
+        "operationId": "newMileageChangeIOT",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/NewMileageChangeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MileageChangeDto"
                 }
               }
             }
@@ -2058,7 +2118,8 @@
             "enum": [
               "ADMIN",
               "MANAGER",
-              "DRIVER"
+              "DRIVER",
+              "IOT"
             ]
           },
           "assignments": {
@@ -2230,6 +2291,94 @@
           }
         }
       },
+      "CreateVehicleResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "registrationNumber": {
+            "type": "string"
+          },
+          "vin": {
+            "type": "string"
+          },
+          "fuelType": {
+            "type": "string",
+            "enum": [
+              "GASOLINE",
+              "DIESEL",
+              "ELECTRIC",
+              "DIESEL_HYBRID",
+              "GASOLINE_HYBRID",
+              "LPG"
+            ]
+          },
+          "displacement": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusChanges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatusChangeDto"
+            }
+          },
+          "refuelings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefuelingDto"
+            }
+          },
+          "inspections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InspectionDto"
+            }
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceDto"
+            }
+          },
+          "insurances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InsuranceDto"
+            }
+          },
+          "mileageChanges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MileageChangeDto"
+            }
+          },
+          "assignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssignmentDto"
+            }
+          },
+          "iotUsername": {
+            "type": "string"
+          },
+          "iotPassword": {
+            "type": "string"
+          }
+        }
+      },
       "NewRefuelingRequest": {
         "type": "object",
         "properties": {
@@ -2280,7 +2429,8 @@
             "enum": [
               "ADMIN",
               "MANAGER",
-              "DRIVER"
+              "DRIVER",
+              "IOT"
             ]
           }
         }
@@ -2418,7 +2568,8 @@
             "enum": [
               "ADMIN",
               "MANAGER",
-              "DRIVER"
+              "DRIVER",
+              "IOT"
             ]
           }
         }

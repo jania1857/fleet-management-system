@@ -49,7 +49,7 @@ const NewCar: React.FC = () => {
         }
 
         await managerApi.createVehicle(request)
-            .then(() => alert("Samochód został pomyślnie utworzony"))
+            .then((response) => alert("Samochód został pomyślnie utworzony\n###################################\nLoginIOT: " + response.data.iotUsername + "\nHasłoIOT: " + response.data.iotPassword))
             .catch(error => alert(`Podczas tworzenia pojazdu wystąpił problem: ${error}`))
             .finally(() => clearForm());
 

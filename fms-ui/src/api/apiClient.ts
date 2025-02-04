@@ -1,4 +1,10 @@
-import { Configuration, AdminControllerApi, AllControllerApi, ManagerControllerApi } from "../generated-client";
+import {
+    Configuration,
+    AdminControllerApi,
+    AllControllerApi,
+    ManagerControllerApi,
+    IotControllerApi
+} from "../generated-client";
 import axios from 'axios';
 import {BASE_PATH} from "../generated-client/base.ts";
 
@@ -29,3 +35,4 @@ customAxiosInstance.interceptors.response.use(
 export const adminApi = new AdminControllerApi(apiConfig, undefined, customAxiosInstance);
 export const managerApi = new ManagerControllerApi(apiConfig, undefined, customAxiosInstance);
 export const allApi = new AllControllerApi(apiConfig, undefined, customAxiosInstance);
+export const iotApi = new IotControllerApi(apiConfig, undefined, customAxiosInstance);

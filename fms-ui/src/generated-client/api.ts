@@ -213,7 +213,8 @@ export interface ChangeUserRoleRequest {
 export const ChangeUserRoleRequestNewRoleEnum = {
     Admin: 'ADMIN',
     Manager: 'MANAGER',
-    Driver: 'DRIVER'
+    Driver: 'DRIVER',
+    Iot: 'IOT'
 } as const;
 
 export type ChangeUserRoleRequestNewRoleEnum = typeof ChangeUserRoleRequestNewRoleEnum[keyof typeof ChangeUserRoleRequestNewRoleEnum];
@@ -296,7 +297,8 @@ export interface CreateUserRequest {
 export const CreateUserRequestRoleEnum = {
     Admin: 'ADMIN',
     Manager: 'MANAGER',
-    Driver: 'DRIVER'
+    Driver: 'DRIVER',
+    Iot: 'IOT'
 } as const;
 
 export type CreateUserRequestRoleEnum = typeof CreateUserRequestRoleEnum[keyof typeof CreateUserRequestRoleEnum];
@@ -415,6 +417,127 @@ export const CreateVehicleRequestInsuranceTypeEnum = {
 } as const;
 
 export type CreateVehicleRequestInsuranceTypeEnum = typeof CreateVehicleRequestInsuranceTypeEnum[keyof typeof CreateVehicleRequestInsuranceTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface CreateVehicleResponse
+ */
+export interface CreateVehicleResponse {
+    /**
+     * 
+     * @type {number}
+     * @memberof CreateVehicleResponse
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'manufacturer'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'model'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CreateVehicleResponse
+     */
+    'year'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'registrationNumber'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'vin'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'fuelType'?: CreateVehicleResponseFuelTypeEnum;
+    /**
+     * 
+     * @type {number}
+     * @memberof CreateVehicleResponse
+     */
+    'displacement'?: number;
+    /**
+     * 
+     * @type {Array<StatusChangeDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'statusChanges'?: Array<StatusChangeDto>;
+    /**
+     * 
+     * @type {Array<RefuelingDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'refuelings'?: Array<RefuelingDto>;
+    /**
+     * 
+     * @type {Array<InspectionDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'inspections'?: Array<InspectionDto>;
+    /**
+     * 
+     * @type {Array<ServiceDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'services'?: Array<ServiceDto>;
+    /**
+     * 
+     * @type {Array<InsuranceDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'insurances'?: Array<InsuranceDto>;
+    /**
+     * 
+     * @type {Array<MileageChangeDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'mileageChanges'?: Array<MileageChangeDto>;
+    /**
+     * 
+     * @type {Array<AssignmentDto>}
+     * @memberof CreateVehicleResponse
+     */
+    'assignments'?: Array<AssignmentDto>;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'iotUsername'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'iotPassword'?: string;
+}
+
+export const CreateVehicleResponseFuelTypeEnum = {
+    Gasoline: 'GASOLINE',
+    Diesel: 'DIESEL',
+    Electric: 'ELECTRIC',
+    DieselHybrid: 'DIESEL_HYBRID',
+    GasolineHybrid: 'GASOLINE_HYBRID',
+    Lpg: 'LPG'
+} as const;
+
+export type CreateVehicleResponseFuelTypeEnum = typeof CreateVehicleResponseFuelTypeEnum[keyof typeof CreateVehicleResponseFuelTypeEnum];
 
 /**
  * 
@@ -564,7 +687,7 @@ export interface MileageChangeDto {
      * @type {number}
      * @memberof MileageChangeDto
      */
-    'id': number;
+    'id'?: number;
     /**
      * 
      * @type {number}
@@ -1158,7 +1281,8 @@ export interface UserDto {
 export const UserDtoRoleEnum = {
     Admin: 'ADMIN',
     Manager: 'MANAGER',
-    Driver: 'DRIVER'
+    Driver: 'DRIVER',
+    Iot: 'IOT'
 } as const;
 
 export type UserDtoRoleEnum = typeof UserDtoRoleEnum[keyof typeof UserDtoRoleEnum];
@@ -2522,6 +2646,193 @@ export class AllControllerApi extends BaseAPI {
      */
     public newRefueling(vehicleId: number, newRefuelingRequest: NewRefuelingRequest, options?: RawAxiosRequestConfig) {
         return AllControllerApiFp(this.configuration).newRefueling(vehicleId, newRefuelingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * IotControllerApi - axios parameter creator
+ * @export
+ */
+export const IotControllerApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {NewMileageChangeRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        newMileageChangeIOT: async (request: NewMileageChangeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'request' is not null or undefined
+            assertParamExists('newMileageChangeIOT', 'request', request)
+            const localVarPath = `/api/v1/iot/newMileageChangeIOT`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (request !== undefined) {
+                for (const [key, value] of Object.entries(request)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {NewRefuelingRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        newRefuelingIOT: async (request: NewRefuelingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'request' is not null or undefined
+            assertParamExists('newRefuelingIOT', 'request', request)
+            const localVarPath = `/api/v1/iot/newRefuelingIOT`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (request !== undefined) {
+                for (const [key, value] of Object.entries(request)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * IotControllerApi - functional programming interface
+ * @export
+ */
+export const IotControllerApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IotControllerApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {NewMileageChangeRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async newMileageChangeIOT(request: NewMileageChangeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MileageChangeDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.newMileageChangeIOT(request, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IotControllerApi.newMileageChangeIOT']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {NewRefuelingRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async newRefuelingIOT(request: NewRefuelingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RefuelingDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.newRefuelingIOT(request, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IotControllerApi.newRefuelingIOT']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * IotControllerApi - factory interface
+ * @export
+ */
+export const IotControllerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IotControllerApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {NewMileageChangeRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        newMileageChangeIOT(request: NewMileageChangeRequest, options?: RawAxiosRequestConfig): AxiosPromise<MileageChangeDto> {
+            return localVarFp.newMileageChangeIOT(request, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {NewRefuelingRequest} request 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        newRefuelingIOT(request: NewRefuelingRequest, options?: RawAxiosRequestConfig): AxiosPromise<RefuelingDto> {
+            return localVarFp.newRefuelingIOT(request, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * IotControllerApi - object-oriented interface
+ * @export
+ * @class IotControllerApi
+ * @extends {BaseAPI}
+ */
+export class IotControllerApi extends BaseAPI {
+    /**
+     * 
+     * @param {NewMileageChangeRequest} request 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IotControllerApi
+     */
+    public newMileageChangeIOT(request: NewMileageChangeRequest, options?: RawAxiosRequestConfig) {
+        return IotControllerApiFp(this.configuration).newMileageChangeIOT(request, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {NewRefuelingRequest} request 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IotControllerApi
+     */
+    public newRefuelingIOT(request: NewRefuelingRequest, options?: RawAxiosRequestConfig) {
+        return IotControllerApiFp(this.configuration).newRefuelingIOT(request, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3894,7 +4205,7 @@ export const ManagerControllerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createVehicle(createVehicleRequest: CreateVehicleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VehicleDto>> {
+        async createVehicle(createVehicleRequest: CreateVehicleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateVehicleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createVehicle(createVehicleRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagerControllerApi.createVehicle']?.[localVarOperationServerIndex]?.url;
@@ -4324,7 +4635,7 @@ export const ManagerControllerApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createVehicle(createVehicleRequest: CreateVehicleRequest, options?: RawAxiosRequestConfig): AxiosPromise<VehicleDto> {
+        createVehicle(createVehicleRequest: CreateVehicleRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateVehicleResponse> {
             return localVarFp.createVehicle(createVehicleRequest, options).then((request) => request(axios, basePath));
         },
         /**
