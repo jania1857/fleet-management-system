@@ -12,11 +12,4 @@
     <orderEntry type="jdk" jdkName="openjdk-22" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyNamespacePackagesService">
-    <option name="namespacePackageFolders">
-      <list>
-        <option value="$MODULE_DIR$/iot" />
-      </list>
-    </option>
-  </component>
 </module>

@@ -34,6 +34,8 @@ public class Vehicle {
     @NotNull
     private String vin;
 
+    private String fuelCardNumber;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;

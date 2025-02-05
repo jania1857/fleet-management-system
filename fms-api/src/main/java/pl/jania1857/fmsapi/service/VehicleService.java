@@ -7,6 +7,7 @@ import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.model.*;
 import pl.jania1857.fmsapi.repository.*;
 import pl.jania1857.fmsapi.service.mapper.*;
+import pl.jania1857.fmsapi.utils.Fuel;
 import pl.jania1857.fmsapi.utils.Status;
 
 import java.math.BigDecimal;
@@ -198,6 +199,37 @@ public class VehicleService {
         return refuelingMapper.toDto(savedVehicle.getRefuelings().stream()
                 .max(Comparator.comparing(Refueling::getTimestamp))
                 .orElseThrow(() -> new EntityNotFoundException("Refueling with id " + refueling.getId() + " not found")));
+    }
+
+    public void newRefuelingByTimestamp(
+            Integer vehicleId,
+            LocalDateTime timestamp,
+            BigDecimal quantity,
+            BigDecimal unitPrice,
+            Fuel fuel
+    ) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId)
+                .orElseThrow(() -> new EntityNotFoundException("Vehicle with id " + vehicleId + " not found"));
+
+        Refueling refueling = Refueling.builder()
+                .fuel(fuel)
+                .price(unitPrice)
+                .quantity(quantity)
+                .timestamp(timestamp)
+                .amount(quantity.multiply(unitPrice))
+                .vehicle(vehicle)
+                .build();
+
+        Cost refuelingCost = Cost.builder()
+                .amount(quantity.multiply(unitPrice))
+                .build();
+
+        Cost savedCost = costRepository.save(refuelingCost);
+
+        refueling.setCost(savedCost);
+
+        vehicle.getRefuelings().add(refueling);
+        Vehicle savedVehicle = vehicleRepository.save(vehicle);
     }
 
     public InspectionDto newInspection(

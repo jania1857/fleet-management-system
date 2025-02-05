@@ -1,21 +1,23 @@
 import obd
 import time
 import requests
+import configparser
+import sys
 
 def calculate_distance(input_speed, input_time):
     speed_kmh = input_speed.value.magnitude
     return (speed_kmh / 3.6 * input_time) / 1000
-def authenticate():
+def authenticate(input_username, input_password):
     auth_payload = {
-        "username": "merspr",
-        "password": "C5YBIb;J"
+        "username": input_username,
+        "password": input_password,
     }
 
     auth_response = requests.post("http://localhost:8080/api/v1/public/login", json=auth_payload)
     return auth_response.json()['token']
 def send_new_mileage(input_mileage):
     headers = {
-        "Authorization": "Bearer " + authenticate(),
+        "Authorization": "Bearer " + authenticate(username, password),
         "accept": "*/*"
     }
     try:
@@ -34,6 +36,10 @@ def send_new_mileage(input_mileage):
     except requests.exceptions.RequestException as err:
         print(f"Nieznany błąd: {err}")
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+username = config['Api Credentials']['username']
+password = config['Api Credentials']['password']
 
 connection = obd.OBD(portstr="COM6", baudrate=38400) # Połączenie z interfejsem OBD
 
