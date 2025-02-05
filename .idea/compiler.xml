@@ -3,13 +3,14 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for fms-api" enabled="true">
+      <profile name="Annotation profile for mock-fuel-card-api" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="mock-fuel-card-api" />
         <module name="fms-api" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="fms-api" options="-parameters" />
+      <module name="mock-fuel-card-api" options="-parameters" />
     </option>
   </component>
 </project>
