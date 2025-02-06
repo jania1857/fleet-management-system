@@ -188,6 +188,7 @@ public class VehicleService {
                 .price(request.price())
                 .quantity(request.quantity())
                 .amount(request.amount())
+                .timestamp(LocalDateTime.now())
                 .vehicle(vehicle)
                 .build();
 

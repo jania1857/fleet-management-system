@@ -35,7 +35,6 @@ public class Refueling {
     @NotNull
     private BigDecimal amount;
 
-    @CreationTimestamp
     private LocalDateTime timestamp;
 
     @ManyToOne
