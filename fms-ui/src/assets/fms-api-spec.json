@@ -996,6 +996,41 @@
         }
       }
     },
+    "/api/v1/manager/getIotConfig/{vehicleId}": {
+      "get": {
+        "tags": [
+          "manager-controller"
+        ],
+        "operationId": "getIotConfig",
+        "parameters": [
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "byte"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/manager/getInsuranceById/{insuranceId}": {
       "get": {
         "tags": [
@@ -2042,6 +2077,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "fuelCardNumber": {
+            "type": "string"
+          },
           "statusChanges": {
             "type": "array",
             "items": {
@@ -2256,6 +2294,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "fuelCardNumber": {
+            "type": "string"
+          },
           "mileage": {
             "type": "integer",
             "format": "int32"
@@ -2328,6 +2369,9 @@
           "displacement": {
             "type": "integer",
             "format": "int32"
+          },
+          "fuelCardNumber": {
+            "type": "string"
           },
           "statusChanges": {
             "type": "array",

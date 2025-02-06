@@ -2,7 +2,9 @@ package pl.jania1857.fmsapi.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import pl.jania1857.fmsapi.dto.*;
 import pl.jania1857.fmsapi.model.*;
 import pl.jania1857.fmsapi.repository.*;
@@ -11,6 +13,7 @@ import pl.jania1857.fmsapi.utils.Fuel;
 import pl.jania1857.fmsapi.utils.Status;
 
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class VehicleService {
     private final AssignmentRepository assignmentRepository;
     private final CostRepository costRepository;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     public CreateVehicleResponse createVehicle(
             CreateVehicleRequest request
@@ -41,6 +45,7 @@ public class VehicleService {
                 .model(request.model())
                 .year(request.year())
                 .registrationNumber(request.registrationNumber())
+                .fuelCardNumber(request.fuelCardNumber())
                 .vin(request.vin())
                 .fuelType(request.fuelType())
                 .displacement(request.displacement())
@@ -100,6 +105,7 @@ public class VehicleService {
                 vehicleDto.vin(),
                 vehicleDto.fuelType(),
                 vehicleDto.displacement(),
+                vehicleDto.fuelCardNumber(),
                 vehicleDto.statusChanges(),
                 vehicleDto.refuelings(),
                 vehicleDto.inspections(),
@@ -417,6 +423,26 @@ public class VehicleService {
         Assignment savedAssignment = assignmentRepository.save(assignment);
 
         return assignmentMapper.toDto(savedAssignment);
+    }
+
+    public byte[] getIotDeviceConfig(
+            Integer vehicleId
+    ) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId)
+                .orElseThrow(() -> new EntityNotFoundException("Vehicle with id " + vehicleId + " not found"));
+
+        User iotUser = vehicle.getIotDevice();
+        String iotPassword = userService.generateSecurePassword();
+        iotUser.setPassword(passwordEncoder.encode(iotPassword));
+
+        userRepository.save(iotUser);
+
+        String configContent =
+                "[Api Credentials]\n"
+                        + "username = " + iotUser.getUsername() + "\n"
+                        + "password = " + iotPassword + "\n";
+
+        return configContent.getBytes(StandardCharsets.UTF_8);
     }
 
 

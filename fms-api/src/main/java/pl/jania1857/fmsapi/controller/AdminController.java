@@ -18,7 +18,6 @@ import static org.springframework.http.ResponseEntity.ok;
 public class AdminController {
 
     private final UserService userService;
-    private final CostService costService;
     private final RefuelingService refuelingService;
     private final InspectionService inspectionService;
     private final AssignmentService assignmentService;

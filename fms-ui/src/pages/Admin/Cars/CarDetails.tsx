@@ -100,6 +100,37 @@ const CarDetails: React.FC = () => {
             });
     }
 
+    const fetchConfig = async () => {
+        await managerApi.getIotConfig(vehicleId)
+            .then(async (response) => {
+                let finalString = "";
+
+                if (typeof response.data === "string") {
+                    finalString = response.data;
+                } else {
+                    response.data.forEach(c => {
+                        finalString += c
+                    });
+                }
+
+                const blob = new Blob([finalString], { type: "text/plain;charset=utf-8" });
+
+                const today = new Date().toISOString().split("T")[0]
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute('download', `config-${vehicleId}-${today}.ini`);
+                document.body.appendChild(link);
+                link.click();
+
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(link);
+            })
+            .catch((error) => {
+                alert("Wystąpił błąd podczas pobierania konfiguracji dla tego pojazdu!" + error);
+            })
+    }
+
 
 
     if (loading) {
@@ -168,6 +199,12 @@ const CarDetails: React.FC = () => {
                     </tr>
                     </tbody>
                 </table>
+                <button
+                    className={`bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition transition-colors}`}
+                    onClick={() => fetchConfig()}
+                >
+                    Pobierz konfigurację pokładową
+                </button>
 
             </div>
             <hr className="mt-5 mb-5 border-gray-800"/>

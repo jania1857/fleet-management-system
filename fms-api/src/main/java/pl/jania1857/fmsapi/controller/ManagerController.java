@@ -1,6 +1,8 @@
 package pl.jania1857.fmsapi.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jania1857.fmsapi.dto.*;
@@ -229,5 +231,16 @@ public class ManagerController {
     @PatchMapping ("/updateInsurance/{insuranceId}")
     ResponseEntity<InsuranceDto> updateInsurance(@PathVariable int insuranceId, @RequestBody UpdateInsuranceRequest request) {
         return ok(insuranceService.updateInsurance(insuranceId, request));
+    }
+
+    @GetMapping("/getIotConfig/{vehicleId}")
+    public ResponseEntity<byte[]> getIotConfig(
+            @PathVariable Integer vehicleId
+    ) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=config.ini");
+        headers.add(HttpHeaders.CONTENT_TYPE, "text/plain; charset=UTF-8");
+
+        return new ResponseEntity<>(vehicleService.getIotDeviceConfig(vehicleId), headers, HttpStatus.OK);
     }
 }

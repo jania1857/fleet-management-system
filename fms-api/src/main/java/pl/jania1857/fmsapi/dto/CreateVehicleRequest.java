@@ -13,6 +13,7 @@ public record CreateVehicleRequest(
         String vin,
         FuelType fuelType,
         Integer displacement,
+        String fuelCardNumber,
 
         Integer mileage,
 

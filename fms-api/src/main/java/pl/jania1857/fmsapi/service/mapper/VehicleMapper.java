@@ -26,6 +26,7 @@ public class VehicleMapper {
                 vehicle.getVin(),
                 vehicle.getFuelType(),
                 vehicle.getDisplacement(),
+                vehicle.getFuelCardNumber(),
                 vehicle.getStatusChanges().stream().map(statusChangeMapper::toDto).toList(),
                 vehicle.getRefuelings().stream().map(refuelingMapper::toDto).toList(),
                 vehicle.getInspections().stream().map(inspectionMapper::toDto).toList(),

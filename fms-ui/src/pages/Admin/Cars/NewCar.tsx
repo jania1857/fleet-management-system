@@ -24,6 +24,7 @@ const NewCar: React.FC = () => {
     const [insurer, setInsurer] = useState("");
     const [inspectionDate, setInspectionDate] = useState("");
     const [nextInspectionDate, setNextInspectionDate] = useState("");
+    const [fuelCardNumber, setFuelCardNumber] = useState("");
 
 
 
@@ -38,6 +39,7 @@ const NewCar: React.FC = () => {
             vin,
             fuelType,
             displacement,
+            fuelCardNumber,
             mileage,
             insuranceStart: convertDateToDateTime(new Date(insuranceStart)),
             insuranceEnd: convertDateToDateTime(new Date(insuranceEnd)),
@@ -149,26 +151,28 @@ const NewCar: React.FC = () => {
                     <select
                         className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         value={fuelType}
-                        onChange={(e) => {switch (e.target.value) {
-                                    case "GASOLINE":
-                                        setFuelType(e.target.value)
-                                        break;
-                                    case "DIESEL":
-                                        setFuelType(e.target.value)
-                                        break;
-                                    case "GASOLINE_HYBRID":
-                                        setFuelType(e.target.value)
-                                        break;
-                                    case "DIESEL_HYBRID":
-                                        setFuelType(e.target.value)
-                                        break;
-                                    case "LPG":
-                                        setFuelType(e.target.value)
-                                        break;
-                                    case "ELECTRIC":
-                                        setFuelType(e.target.value)
-                                        break;
-                        }}}
+                        onChange={(e) => {
+                            switch (e.target.value) {
+                                case "GASOLINE":
+                                    setFuelType(e.target.value)
+                                    break;
+                                case "DIESEL":
+                                    setFuelType(e.target.value)
+                                    break;
+                                case "GASOLINE_HYBRID":
+                                    setFuelType(e.target.value)
+                                    break;
+                                case "DIESEL_HYBRID":
+                                    setFuelType(e.target.value)
+                                    break;
+                                case "LPG":
+                                    setFuelType(e.target.value)
+                                    break;
+                                case "ELECTRIC":
+                                    setFuelType(e.target.value)
+                                    break;
+                            }
+                        }}
                         required
                     >
                         <option value="DIESEL">Diesel</option>
@@ -233,14 +237,16 @@ const NewCar: React.FC = () => {
                     <select
                         className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         value={insuranceType}
-                        onChange={(e) => {switch (e.target.value) {
-                            case "OC":
-                                setInsuranceType(e.target.value)
-                                break;
-                            case "AC":
-                                setInsuranceType(e.target.value)
-                                break;
-                        }}}
+                        onChange={(e) => {
+                            switch (e.target.value) {
+                                case "OC":
+                                    setInsuranceType(e.target.value)
+                                    break;
+                                case "AC":
+                                    setInsuranceType(e.target.value)
+                                    break;
+                            }
+                        }}
                         required
                     >
                         <option value="OC">OC</option>
@@ -284,12 +290,25 @@ const NewCar: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Termin najbliższego badania technicznego</label>
+                    <label className="block text-gray-700 font-bold mb-2">Termin najbliższego badania
+                        technicznego</label>
                     <input
                         type="date"
                         value={nextInspectionDate}
                         onChange={(e) => setNextInspectionDate(e.target.value)}
                         className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                    />
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-bold mb-2">Nr karty paliwowej</label>
+                    <input
+                        type="text"
+                        value={fuelCardNumber}
+                        onChange={(e) => setFuelCardNumber(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Nr karty paliwowej"
                         required
                     />
                 </div>

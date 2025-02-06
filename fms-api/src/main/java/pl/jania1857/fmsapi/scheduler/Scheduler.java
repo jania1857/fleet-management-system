@@ -22,16 +22,16 @@ public class Scheduler {
 
 
     // 2-hour interval
-    @Scheduled(fixedRate = 7200000)
-    public void fetchRefuelingsShell() {
-        LocalDateTime lastFetch = LocalDateTime.now().minusHours(2);
-        LocalDateTime now = LocalDateTime.now();
-        if (lastFetchShell != null) {
-            lastFetch = lastFetchShell;
-        }
-
-        String currentDateTimeISO = now.format(DateTimeFormatter.ISO_DATE_TIME);
-        String lastFetchDateTimeISO = lastFetch.format(DateTimeFormatter.ISO_DATE_TIME);
-    }
+//    @Scheduled(fixedRate = 7200000)
+//    public void fetchRefuelingsShell() {
+//        LocalDateTime lastFetch = LocalDateTime.now().minusHours(2);
+//        LocalDateTime now = LocalDateTime.now();
+//        if (lastFetchShell != null) {
+//            lastFetch = lastFetchShell;
+//        }
+//
+//        String currentDateTimeISO = now.format(DateTimeFormatter.ISO_DATE_TIME);
+//        String lastFetchDateTimeISO = lastFetch.format(DateTimeFormatter.ISO_DATE_TIME);
+//    }
 
 }

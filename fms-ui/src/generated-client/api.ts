@@ -353,6 +353,12 @@ export interface CreateVehicleRequest {
     'displacement'?: number;
     /**
      * 
+     * @type {string}
+     * @memberof CreateVehicleRequest
+     */
+    'fuelCardNumber'?: string;
+    /**
+     * 
      * @type {number}
      * @memberof CreateVehicleRequest
      */
@@ -472,6 +478,12 @@ export interface CreateVehicleResponse {
      * @memberof CreateVehicleResponse
      */
     'displacement'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateVehicleResponse
+     */
+    'fuelCardNumber'?: string;
     /**
      * 
      * @type {Array<StatusChangeDto>}
@@ -1341,6 +1353,12 @@ export interface VehicleDto {
      * @memberof VehicleDto
      */
     'displacement'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof VehicleDto
+     */
+    'fuelCardNumber'?: string;
     /**
      * 
      * @type {Array<StatusChangeDto>}
@@ -3565,6 +3583,43 @@ export const ManagerControllerApiAxiosParamCreator = function (configuration?: C
         },
         /**
          * 
+         * @param {number} vehicleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIotConfig: async (vehicleId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'vehicleId' is not null or undefined
+            assertParamExists('getIotConfig', 'vehicleId', vehicleId)
+            const localVarPath = `/api/v1/manager/getIotConfig/{vehicleId}`
+                .replace(`{${"vehicleId"}}`, encodeURIComponent(String(vehicleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {number} refuelingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4421,6 +4476,18 @@ export const ManagerControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {number} vehicleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIotConfig(vehicleId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIotConfig(vehicleId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ManagerControllerApi.getIotConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {number} refuelingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4794,6 +4861,15 @@ export const ManagerControllerApiFactory = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {number} vehicleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIotConfig(vehicleId: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
+            return localVarFp.getIotConfig(vehicleId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {number} refuelingId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5158,6 +5234,17 @@ export class ManagerControllerApi extends BaseAPI {
      */
     public getInsuranceById(insuranceId: number, options?: RawAxiosRequestConfig) {
         return ManagerControllerApiFp(this.configuration).getInsuranceById(insuranceId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} vehicleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagerControllerApi
+     */
+    public getIotConfig(vehicleId: number, options?: RawAxiosRequestConfig) {
+        return ManagerControllerApiFp(this.configuration).getIotConfig(vehicleId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

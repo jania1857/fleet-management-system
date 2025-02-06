@@ -184,7 +184,7 @@ public class UserService {
         return uniqueUsername;
     }
 
-    private String generateSecurePassword() {
+    public String generateSecurePassword() {
         String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         String digits = "0123456789";

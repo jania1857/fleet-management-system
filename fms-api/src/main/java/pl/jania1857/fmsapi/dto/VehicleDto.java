@@ -13,6 +13,7 @@ public record VehicleDto(
         String vin,
         FuelType fuelType,
         Integer displacement,
+        String fuelCardNumber,
         List<StatusChangeDto> statusChanges,
         List<RefuelingDto> refuelings,
         List<InspectionDto> inspections,
