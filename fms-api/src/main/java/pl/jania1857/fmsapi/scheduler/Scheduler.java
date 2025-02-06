@@ -35,8 +35,8 @@ public class Scheduler {
     }
 
 
-    //2-hour interval
-    @Scheduled(fixedRate = 5000)
+    //1-hour interval
+    @Scheduled(fixedRate = 3600000)
     public void fetchRefuelingsShell() {
         LocalDateTime lastFetch = LocalDateTime.now().minusHours(2);
         LocalDateTime now = LocalDateTime.now();
