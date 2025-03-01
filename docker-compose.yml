@@ -1,5 +1,22 @@
 version: '3.8'
 services:
+  mock-fuel-card-api:
+    image: mock-fuel-card-api
+    build: .
+    ports:
+      - "8081:8081"
+  fleet-management-system-api:
+    image: fms-api
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/fleet_management
+      SPRING_DATASOURCE_USERNAME: jania
+      SPRING_DATASOURCE_PASSWORD: jania
+    depends_on:
+      - db
+      - mock-fuel-card-api
   db:
     image: postgres
     container_name: fleet_management_db

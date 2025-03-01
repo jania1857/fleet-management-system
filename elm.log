@@ -2266,3 +2266,1212 @@ ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
 
 ELM327 OBD-II adapter emulator v3.0.3 started on Windows serial COM port "COM3".
 
+2025-02-06 18:56:35,053  root       run             INFO     
+
+ELM327 OBD-II adapter emulator v3.0.3 started on serial COM port "COM5".
+
+2025-02-06 19:01:20,256  root       run             DEBUG    Received 'ATZ'
+2025-02-06 19:01:20,256  root       handle_request  DEBUG    Handling: 'ATZ', header '7E0', ECU '7E0'
+2025-02-06 19:01:20,257  root       handle_request  DEBUG    Instantiating ECU task "Default ECU Task module" for ECU "7E0"
+2025-02-06 19:01:20,258  root       handle_request  DEBUG    Description: AT RESET, PID AT_RESET (ATZ)
+2025-02-06 19:01:20,258  root       reset           DEBUG    Resetting counters and sleeping for 0.5 seconds
+2025-02-06 19:01:20,759  root       <module>        DEBUG    Reset and sleep 0.5 seconds
+2025-02-06 19:01:20,759  root       handle_response DEBUG    Processing: '<writeln>\r\rELM327 v1.5</writeln>'
+2025-02-06 19:01:20,759  root       handle_response DEBUG    Write: '\r\rELM327 v1.5\r\r>'
+2025-02-06 19:01:21,257  root       run             DEBUG    Received 'ATE0'
+2025-02-06 19:01:21,257  root       handle_request  DEBUG    Handling: 'ATE0', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,257  root       handle_request  DEBUG    Description: AT ECHO, PID AT_ECHO (ATE0)
+2025-02-06 19:01:21,257  root       <module>        DEBUG    set ECHO ON/OFF : False
+2025-02-06 19:01:21,257  root       handle_response DEBUG    Processing: '<writeln>OK</writeln>'
+2025-02-06 19:01:21,257  root       handle_response DEBUG    Write: 'OK\r\r>'
+2025-02-06 19:01:21,258  root       run             DEBUG    Received 'ATH1'
+2025-02-06 19:01:21,258  root       handle_request  DEBUG    Handling: 'ATH1', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,258  root       handle_request  DEBUG    Description: AT HEADERS, PID AT_USE_HEADERS (ATH1)
+2025-02-06 19:01:21,258  root       <module>        DEBUG    set HEADERS ON/OFF : True
+2025-02-06 19:01:21,258  root       handle_response DEBUG    Processing: '<writeln>OK</writeln>'
+2025-02-06 19:01:21,258  root       handle_response DEBUG    Write: 'OK\r\r>'
+2025-02-06 19:01:21,259  root       run             DEBUG    Received 'ATL0'
+2025-02-06 19:01:21,259  root       handle_request  DEBUG    Handling: 'ATL0', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,259  root       handle_request  DEBUG    Description: AT LINEFEEDS, PID AT_LINEFEEDS (ATL0)
+2025-02-06 19:01:21,259  root       <module>        DEBUG    set LINEFEEDS ON/OFF : False
+2025-02-06 19:01:21,259  root       handle_response DEBUG    Processing: '<writeln>OK</writeln>'
+2025-02-06 19:01:21,259  root       handle_response DEBUG    Write: 'OK\r\r>'
+2025-02-06 19:01:21,259  root       run             DEBUG    Received 'AT RV'
+2025-02-06 19:01:21,259  root       handle_request  DEBUG    Handling: 'ATRV', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,259  root       handle_request  DEBUG    Description: AT read volt, PID AT_R_VOLT (ATRV)
+2025-02-06 19:01:21,259  root       <module>        DEBUG    Volt = 13.1
+2025-02-06 19:01:21,259  root       handle_response DEBUG    Processing: '<string>13.1</string><writeln>V</writeln>'
+2025-02-06 19:01:21,259  root       handle_response DEBUG    Write: '13.1V\r\r>'
+2025-02-06 19:01:21,260  root       run             DEBUG    Received 'ATSP0'
+2025-02-06 19:01:21,260  root       handle_request  DEBUG    Handling: 'ATSP0', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,260  root       handle_request  DEBUG    Description: AT PROTO, PID AT_PROTO (ATSP0)
+2025-02-06 19:01:21,260  root       <module>        DEBUG    set PROTO 0
+2025-02-06 19:01:21,260  root       handle_response DEBUG    Processing: '<writeln>OK</writeln>'
+2025-02-06 19:01:21,260  root       handle_response DEBUG    Write: 'OK\r\r>'
+2025-02-06 19:01:21,260  root       run             DEBUG    Received '0100'
+2025-02-06 19:01:21,260  root       handle_request  DEBUG    Handling: '0100', header '7E0', ECU '7E0'
+2025-02-06 19:01:21,261  root       handle_request  DEBUG    Description: PIDS_A, PID ELM_PIDS_A (0100)
+2025-02-06 19:01:21,261  root       handle_response DEBUG    Processing: '<string>SEARCHING...</string><exec>time.sleep(3)</exec><writeln></writeln><header>7EA</header><size>06</size><data>41 00 98 3A 80 13</data><pos_answer>BE 3F A8 13</pos_answer>'
+2025-02-06 19:01:21,261  root       handle_response DEBUG    Write: 'SEARCHING...'
+2025-02-06 19:01:24,261  root       handle_response DEBUG    Evaluated command: time.sleep(3) -> None
+2025-02-06 19:01:24,261  root       handle_response DEBUG    Write: '\r7EA 06 41 00 98 3A 80 13 \r7E8 06 41 00 BE 3F A8 13 \r\r>'
+2025-02-06 19:01:24,261  root       run             DEBUG    Received 'ATDPN'
+2025-02-06 19:01:24,261  root       handle_request  DEBUG    Handling: 'ATDPN', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,262  root       handle_request  DEBUG    Description: AT Display Protocol Number, PID AT_DESCRIBE_PROTO_N (ATDPN)
+2025-02-06 19:01:24,762  root       handle_response DEBUG    Processing: '<writeln>A6</writeln>'
+2025-02-06 19:01:24,763  root       handle_response DEBUG    Write: 'A6\r\r>'
+2025-02-06 19:01:24,764  root       run             DEBUG    Received '0100'
+2025-02-06 19:01:24,764  root       handle_request  DEBUG    Handling: '0100', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,764  root       handle_request  DEBUG    Description: PIDS_A, PID ELM_PIDS_A (0100)
+2025-02-06 19:01:24,764  root       handle_response DEBUG    Processing: '<header>7EA</header><size>06</size><data>41 00 98 3A 80 13</data><pos_answer>BE 3F A8 13</pos_answer>'
+2025-02-06 19:01:24,764  root       handle_response DEBUG    Write: '7EA 06 41 00 98 3A 80 13 \r7E8 06 41 00 BE 3F A8 13 \r\r>'
+2025-02-06 19:01:24,764  root       run             DEBUG    Received '0120'
+2025-02-06 19:01:24,764  root       handle_request  DEBUG    Handling: '0120', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,764  root       handle_request  DEBUG    Description: PIDS_B, PID ELM_PIDS_B (0120)
+2025-02-06 19:01:24,764  root       handle_response DEBUG    Processing: '<header>7EA</header><size>06</size><data>41 20 80 01 A0 01</data><pos_answer>90 15 B0 15</pos_answer>'
+2025-02-06 19:01:24,764  root       handle_response DEBUG    Write: '7EA 06 41 20 80 01 A0 01 \r7E8 06 41 20 90 15 B0 15 \r\r>'
+2025-02-06 19:01:24,765  root       run             DEBUG    Received '0140'
+2025-02-06 19:01:24,765  root       handle_request  DEBUG    Handling: '0140', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,765  root       handle_request  DEBUG    Description: PIDS_C, PID ELM_PIDS_C (0140)
+2025-02-06 19:01:24,765  root       handle_response DEBUG    Processing: '<header>7EA</header><size>06</size><data>41 40 44 CC 00 21</data><pos_answer>7A 1C 80 00</pos_answer>'
+2025-02-06 19:01:24,765  root       handle_response DEBUG    Write: '7EA 06 41 40 44 CC 00 21 \r7E8 06 41 40 7A 1C 80 00 \r\r>'
+2025-02-06 19:01:24,765  root       run             DEBUG    Received '0600'
+2025-02-06 19:01:24,765  root       handle_request  DEBUG    Handling: '0600', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,765  root       handle_request  DEBUG    Description: MIDS_A, PID ELM_MIDS_A (0600)
+2025-02-06 19:01:24,765  root       handle_response DEBUG    Processing: '<pos_answer>C0 00 00 01</pos_answer>'
+2025-02-06 19:01:24,765  root       handle_response DEBUG    Write: '7E8 05 46 C0 00 00 01 \r\r>'
+2025-02-06 19:01:24,766  root       run             DEBUG    Received '010D'
+2025-02-06 19:01:24,766  root       handle_request  DEBUG    Handling: '010D', header '7E0', ECU '7E0'
+2025-02-06 19:01:24,766  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D)
+2025-02-06 19:01:24,766  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:01:24,766  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:01:25,767  root       run             DEBUG    Received '010D2'
+2025-02-06 19:01:25,767  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:25,767  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:25,767  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:01:25,767  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:01:26,769  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:26,769  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:26,769  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:26,769  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:01:26,769  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:01:27,771  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:27,771  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:27,771  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:27,771  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:01:27,771  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:01:28,773  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:28,773  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:28,773  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:28,773  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:01:28,773  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:01:29,774  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:29,774  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:29,774  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:29,774  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:01:29,775  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:01:30,776  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:30,776  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:30,776  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:30,776  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:01:30,776  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:01:31,777  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:31,777  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:31,777  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:31,777  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:01:31,777  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:01:32,779  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:32,779  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:32,779  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:32,779  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:01:32,779  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:01:33,780  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:33,780  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:33,780  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:33,780  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:01:33,780  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:01:34,782  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:34,782  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:34,782  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:34,782  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:01:34,782  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:01:35,783  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:35,783  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:35,783  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:35,783  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:01:35,784  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:01:36,785  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:36,785  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:36,785  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:36,785  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:01:36,785  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:01:37,787  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:37,787  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:37,787  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:37,787  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:01:37,787  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:01:38,788  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:38,788  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:38,788  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:38,788  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:01:38,789  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:01:39,790  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:39,790  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:39,790  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:39,790  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:01:39,790  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:01:40,791  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:40,791  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:40,791  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:40,791  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:01:40,791  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:01:41,793  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:41,793  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:41,793  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:41,793  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:01:41,793  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:01:42,794  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:42,794  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:42,794  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:42,794  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:01:42,794  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:01:43,795  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:43,795  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:43,796  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:43,796  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:01:43,796  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:01:44,797  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:44,797  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:44,797  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:44,797  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:01:44,797  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:01:45,799  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:45,799  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:45,799  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:45,799  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:01:45,799  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:01:46,801  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:46,801  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:46,801  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:46,801  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:01:46,801  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:01:47,802  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:47,803  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:47,803  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:47,803  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:01:47,803  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:01:48,805  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:48,805  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:48,805  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:48,805  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:01:48,805  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:01:49,806  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:49,807  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:49,807  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:49,807  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:01:49,807  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:01:50,808  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:50,808  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:50,808  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:50,808  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:01:50,808  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:01:51,810  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:51,810  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:51,810  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:51,810  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:01:51,810  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:01:52,811  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:52,811  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:52,811  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:52,811  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:01:52,811  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:01:53,813  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:53,813  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:53,813  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:53,813  root       handle_response DEBUG    Processing: '<pos_answer>78</pos_answer> <header>7EA</header><size>03</size><data>41 0D 78</data>'
+2025-02-06 19:01:53,813  root       handle_response DEBUG    Write: '7E8 03 41 0D 78 \r7EA 03 41 0D 78 \r\r>'
+2025-02-06 19:01:54,814  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:54,814  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:54,814  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:54,814  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:01:54,814  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:01:55,816  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:55,816  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:55,816  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:55,816  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:01:55,816  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:01:56,817  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:56,817  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:56,817  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:56,817  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:01:56,818  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:01:57,820  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:57,821  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:57,821  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:57,821  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:01:57,821  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:01:58,822  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:58,822  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:58,822  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:58,822  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:01:58,822  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:01:59,823  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:01:59,823  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:01:59,823  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:01:59,824  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:01:59,824  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:02:00,825  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:00,825  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:00,825  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:00,825  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:02:00,825  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:02:01,826  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:01,826  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:01,826  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:01,826  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:02:01,826  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:02:02,828  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:02,828  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:02,828  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:02,828  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:02:02,828  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:02:03,829  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:03,829  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:03,830  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:03,830  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:02:03,830  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:02:04,831  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:04,831  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:04,831  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:04,831  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:02:04,831  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:02:05,832  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:05,832  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:05,832  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:05,832  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:02:05,832  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:02:06,833  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:06,834  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:06,834  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:06,834  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:02:06,834  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:02:07,835  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:07,835  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:07,835  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:07,835  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:02:07,835  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:02:08,837  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:08,837  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:08,837  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:08,837  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:02:08,837  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:02:09,840  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:09,840  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:09,840  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:09,840  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:02:09,840  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:02:10,841  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:10,841  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:10,841  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:10,841  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:02:10,841  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:02:11,843  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:11,843  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:11,843  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:11,843  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:02:11,843  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:02:12,845  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:12,845  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:12,845  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:12,845  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:02:12,845  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:02:13,847  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:13,847  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:13,847  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:13,847  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:02:13,847  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:02:14,848  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:14,848  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:14,848  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:14,848  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:02:14,848  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:02:15,849  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:15,850  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:15,850  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:15,850  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:02:15,850  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:02:16,851  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:16,851  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:16,851  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:16,851  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:02:16,851  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:02:17,853  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:17,853  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:17,853  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:17,853  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:02:17,853  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:02:18,854  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:18,854  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:18,854  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:18,854  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:02:18,854  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:02:19,857  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:19,857  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:19,857  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:19,857  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:02:19,857  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:02:20,858  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:20,858  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:20,858  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:20,858  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:02:20,858  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:02:21,859  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:21,860  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:21,860  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:21,860  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:02:21,860  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:02:22,861  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:22,861  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:22,861  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:22,861  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:02:22,862  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:02:23,863  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:23,863  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:23,863  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:23,863  root       handle_response DEBUG    Processing: '<pos_answer>00</pos_answer> <header>7EA</header><size>03</size><data>41 0D 00</data>'
+2025-02-06 19:02:23,863  root       handle_response DEBUG    Write: '7E8 03 41 0D 00 \r7EA 03 41 0D 00 \r\r>'
+2025-02-06 19:02:24,864  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:24,864  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:24,865  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:24,865  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:02:24,865  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:02:25,866  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:25,866  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:25,866  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:25,866  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:02:25,866  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:02:26,868  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:26,868  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:26,868  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:26,868  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:02:26,868  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:02:27,869  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:27,869  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:27,869  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:27,869  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:02:27,869  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:02:28,871  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:28,871  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:28,871  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:28,871  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:02:28,871  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:02:29,872  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:29,872  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:29,872  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:29,872  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:02:29,873  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:02:30,874  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:30,874  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:30,874  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:30,874  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:02:30,874  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:02:31,875  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:31,875  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:31,875  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:31,876  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:02:31,876  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:02:32,877  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:32,877  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:32,877  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:32,877  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:02:32,877  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:02:33,879  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:33,879  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:33,879  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:33,879  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:02:33,879  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:02:34,880  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:34,880  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:34,880  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:34,881  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:02:34,881  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:02:35,882  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:35,882  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:35,882  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:35,882  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:02:35,882  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:02:36,884  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:36,884  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:36,884  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:36,884  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:02:36,884  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:02:37,885  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:37,886  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:37,886  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:37,886  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:02:37,886  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:02:38,887  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:38,887  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:38,887  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:38,887  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:02:38,887  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:02:39,888  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:39,888  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:39,888  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:39,889  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:02:39,889  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:02:40,890  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:40,890  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:40,890  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:40,890  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:02:40,890  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:02:41,892  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:41,892  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:41,892  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:41,892  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:02:41,892  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:02:42,895  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:42,895  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:42,895  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:42,895  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:02:42,895  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:02:43,896  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:43,897  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:43,897  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:43,897  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:02:43,897  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:02:44,898  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:44,898  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:44,898  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:44,898  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:02:44,898  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:02:45,900  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:45,900  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:45,900  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:45,900  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:02:45,900  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:02:46,901  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:46,901  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:46,901  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:46,901  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:02:46,901  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:02:47,902  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:47,902  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:47,902  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:47,902  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:02:47,903  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:02:48,904  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:48,904  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:48,904  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:48,904  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:02:48,904  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:02:49,906  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:49,906  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:49,906  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:49,906  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:02:49,906  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:02:50,907  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:50,907  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:50,908  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:50,908  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:02:50,908  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:02:51,909  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:51,909  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:51,909  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:51,909  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:02:51,909  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:02:52,910  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:52,911  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:52,911  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:52,911  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:02:52,911  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:02:53,912  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:53,912  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:53,912  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:53,912  root       handle_response DEBUG    Processing: '<pos_answer>78</pos_answer> <header>7EA</header><size>03</size><data>41 0D 78</data>'
+2025-02-06 19:02:53,913  root       handle_response DEBUG    Write: '7E8 03 41 0D 78 \r7EA 03 41 0D 78 \r\r>'
+2025-02-06 19:02:54,914  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:54,914  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:54,914  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:54,914  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:02:54,914  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:02:55,916  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:55,916  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:55,916  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:55,916  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:02:55,916  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:02:56,917  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:56,917  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:56,917  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:56,917  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:02:56,917  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:02:57,918  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:57,918  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:57,918  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:57,918  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:02:57,919  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:02:58,920  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:58,920  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:58,920  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:58,920  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:02:58,920  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:02:59,921  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:02:59,921  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:02:59,921  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:02:59,921  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:02:59,921  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:03:00,922  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:00,922  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:00,922  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:00,922  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:03:00,922  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:03:01,924  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:01,924  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:01,924  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:01,924  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:03:01,924  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:03:02,925  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:02,925  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:02,926  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:02,926  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:03:02,926  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:03:03,927  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:03,927  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:03,927  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:03,927  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:03:03,927  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:03:04,928  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:04,928  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:04,928  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:04,928  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:03:04,928  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:03:05,930  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:05,930  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:05,931  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:05,931  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:03:05,931  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:03:06,932  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:06,932  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:06,932  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:06,932  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:03:06,932  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:03:07,933  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:07,933  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:07,933  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:07,933  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:03:07,933  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:03:08,936  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:08,936  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:08,936  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:08,936  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:03:08,936  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:03:09,937  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:09,937  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:09,937  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:09,937  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:03:09,937  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:03:10,938  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:10,938  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:10,938  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:10,938  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:03:10,939  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:03:11,940  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:11,940  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:11,940  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:11,940  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:03:11,940  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:03:12,942  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:12,942  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:12,942  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:12,942  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:03:12,942  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:03:13,943  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:13,943  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:13,943  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:13,943  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:03:13,944  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:03:14,945  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:14,945  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:14,945  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:14,945  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:03:14,945  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:03:15,946  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:15,946  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:15,947  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:15,947  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:03:15,947  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:03:16,949  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:16,949  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:16,949  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:16,949  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:03:16,949  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:03:17,950  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:17,950  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:17,950  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:17,950  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:03:17,950  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:03:18,951  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:18,951  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:18,951  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:18,951  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:03:18,951  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:03:19,953  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:19,953  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:19,953  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:19,953  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:03:19,953  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:03:20,955  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:20,955  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:20,955  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:20,955  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:03:20,955  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:03:21,956  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:21,957  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:21,957  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:21,957  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:03:21,957  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:03:22,958  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:22,958  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:22,958  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:22,958  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:03:22,958  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:03:23,959  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:23,959  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:23,959  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:23,959  root       handle_response DEBUG    Processing: '<pos_answer>00</pos_answer> <header>7EA</header><size>03</size><data>41 0D 00</data>'
+2025-02-06 19:03:23,959  root       handle_response DEBUG    Write: '7E8 03 41 0D 00 \r7EA 03 41 0D 00 \r\r>'
+2025-02-06 19:03:24,961  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:24,961  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:24,961  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:24,961  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:03:24,961  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:03:26,088  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:26,088  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:26,088  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:26,088  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:03:26,088  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:03:27,090  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:27,090  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:27,090  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:27,090  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:03:27,090  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:03:28,091  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:28,091  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:28,091  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:28,091  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:03:28,091  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:03:29,093  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:29,093  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:29,093  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:29,093  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:03:29,093  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:03:30,095  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:30,095  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:30,095  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:30,095  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:03:30,095  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:03:31,096  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:31,096  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:31,096  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:31,096  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:03:31,096  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:03:32,098  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:32,098  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:32,098  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:32,098  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:03:32,098  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:03:33,099  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:33,099  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:33,100  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:33,100  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:03:33,100  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:03:34,101  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:34,101  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:34,101  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:34,101  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:03:34,101  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:03:35,102  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:35,103  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:35,103  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:35,103  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:03:35,103  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:03:36,104  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:36,104  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:36,104  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:36,104  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:03:36,104  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:03:37,106  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:37,106  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:37,106  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:37,106  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:03:37,106  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:03:38,108  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:38,108  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:38,108  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:38,108  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:03:38,108  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:03:39,109  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:39,109  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:39,109  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:39,109  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:03:39,109  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:03:40,110  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:40,111  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:40,111  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:40,111  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:03:40,111  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:03:41,112  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:41,112  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:41,112  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:41,112  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:03:41,112  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:03:42,114  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:42,114  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:42,114  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:42,114  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:03:42,114  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:03:43,115  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:43,115  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:43,115  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:43,115  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:03:43,116  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:03:44,117  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:44,117  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:44,117  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:44,117  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:03:44,117  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:03:45,118  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:45,119  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:45,119  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:45,119  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:03:45,119  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:03:46,121  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:46,121  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:46,121  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:46,121  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:03:46,121  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:03:47,122  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:47,123  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:47,123  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:47,123  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:03:47,123  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:03:48,124  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:48,124  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:48,124  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:48,124  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:03:48,124  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:03:49,126  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:49,126  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:49,126  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:49,126  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:03:49,126  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:03:50,127  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:50,127  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:50,127  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:50,127  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:03:50,127  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:03:51,129  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:51,129  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:51,129  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:51,129  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:03:51,129  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:03:52,131  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:52,131  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:52,131  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:52,131  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:03:52,131  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:03:53,132  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:53,132  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:53,132  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:53,132  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:03:53,132  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:03:54,133  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:54,134  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:54,134  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:54,134  root       handle_response DEBUG    Processing: '<pos_answer>78</pos_answer> <header>7EA</header><size>03</size><data>41 0D 78</data>'
+2025-02-06 19:03:54,134  root       handle_response DEBUG    Write: '7E8 03 41 0D 78 \r7EA 03 41 0D 78 \r\r>'
+2025-02-06 19:03:55,135  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:55,135  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:55,135  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:55,135  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:03:55,135  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:03:56,136  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:56,139  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:56,140  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:56,140  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:03:56,140  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:03:57,141  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:57,141  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:57,141  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:57,141  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:03:57,141  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:03:58,142  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:58,142  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:58,142  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:58,142  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:03:58,142  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:03:59,144  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:03:59,144  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:03:59,144  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:03:59,144  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:03:59,144  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:04:00,145  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:00,145  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:00,145  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:00,145  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:04:00,145  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:04:01,147  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:01,147  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:01,147  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:01,147  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:04:01,147  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:04:02,148  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:02,148  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:02,148  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:02,148  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:04:02,148  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:04:03,150  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:03,150  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:03,150  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:03,150  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:04:03,150  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:04:04,151  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:04,151  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:04,151  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:04,151  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:04:04,151  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:04:05,152  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:05,153  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:05,153  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:05,153  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:04:05,153  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:04:06,154  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:06,154  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:06,154  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:06,154  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:04:06,154  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:04:07,156  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:07,156  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:07,156  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:07,156  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:04:07,156  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:04:08,158  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:08,158  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:08,158  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:08,158  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:04:08,158  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:04:09,160  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:09,160  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:09,160  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:09,160  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:04:09,160  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:04:10,162  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:10,163  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:10,163  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:10,163  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:04:10,163  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:04:11,165  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:11,165  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:11,165  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:11,165  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:04:11,165  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:04:12,167  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:12,167  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:12,167  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:12,167  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:04:12,167  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:04:13,168  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:13,168  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:13,168  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:13,168  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:04:13,168  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:04:14,170  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:14,170  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:14,170  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:14,170  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:04:14,170  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:04:15,171  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:15,171  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:15,172  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:15,172  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:04:15,172  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:04:16,173  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:16,173  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:16,173  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:16,173  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:04:16,173  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:04:17,175  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:17,175  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:17,175  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:17,175  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:04:17,175  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:04:18,176  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:18,176  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:18,176  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:18,176  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:04:18,176  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:04:19,178  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:19,178  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:19,178  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:19,178  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:04:19,178  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:04:20,179  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:20,179  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:20,179  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:20,179  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:04:20,179  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:04:21,180  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:21,180  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:21,181  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:21,181  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:04:21,181  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:04:22,182  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:22,182  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:22,182  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:22,182  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:04:22,182  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:04:23,183  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:23,183  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:23,183  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:23,184  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:04:23,184  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:04:24,185  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:24,185  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:24,185  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:24,185  root       handle_response DEBUG    Processing: '<pos_answer>00</pos_answer> <header>7EA</header><size>03</size><data>41 0D 00</data>'
+2025-02-06 19:04:24,186  root       handle_response DEBUG    Write: '7E8 03 41 0D 00 \r7EA 03 41 0D 00 \r\r>'
+2025-02-06 19:04:25,187  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:25,187  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:25,187  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:25,187  root       handle_response DEBUG    Processing: '<pos_answer>04</pos_answer> <header>7EA</header><size>03</size><data>41 0D 04</data>'
+2025-02-06 19:04:25,187  root       handle_response DEBUG    Write: '7E8 03 41 0D 04 \r7EA 03 41 0D 04 \r\r>'
+2025-02-06 19:04:26,188  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:26,189  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:26,189  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:26,189  root       handle_response DEBUG    Processing: '<pos_answer>08</pos_answer> <header>7EA</header><size>03</size><data>41 0D 08</data>'
+2025-02-06 19:04:26,189  root       handle_response DEBUG    Write: '7E8 03 41 0D 08 \r7EA 03 41 0D 08 \r\r>'
+2025-02-06 19:04:27,190  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:27,190  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:27,190  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:27,190  root       handle_response DEBUG    Processing: '<pos_answer>0C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 0C</data>'
+2025-02-06 19:04:27,190  root       handle_response DEBUG    Write: '7E8 03 41 0D 0C \r7EA 03 41 0D 0C \r\r>'
+2025-02-06 19:04:28,191  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:28,192  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:28,192  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:28,192  root       handle_response DEBUG    Processing: '<pos_answer>10</pos_answer> <header>7EA</header><size>03</size><data>41 0D 10</data>'
+2025-02-06 19:04:28,192  root       handle_response DEBUG    Write: '7E8 03 41 0D 10 \r7EA 03 41 0D 10 \r\r>'
+2025-02-06 19:04:29,193  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:29,193  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:29,193  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:29,193  root       handle_response DEBUG    Processing: '<pos_answer>14</pos_answer> <header>7EA</header><size>03</size><data>41 0D 14</data>'
+2025-02-06 19:04:29,194  root       handle_response DEBUG    Write: '7E8 03 41 0D 14 \r7EA 03 41 0D 14 \r\r>'
+2025-02-06 19:04:30,194  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:30,195  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:30,195  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:30,195  root       handle_response DEBUG    Processing: '<pos_answer>18</pos_answer> <header>7EA</header><size>03</size><data>41 0D 18</data>'
+2025-02-06 19:04:30,195  root       handle_response DEBUG    Write: '7E8 03 41 0D 18 \r7EA 03 41 0D 18 \r\r>'
+2025-02-06 19:04:31,196  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:31,196  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:31,196  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:31,196  root       handle_response DEBUG    Processing: '<pos_answer>1C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 1C</data>'
+2025-02-06 19:04:31,196  root       handle_response DEBUG    Write: '7E8 03 41 0D 1C \r7EA 03 41 0D 1C \r\r>'
+2025-02-06 19:04:32,197  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:32,198  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:32,198  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:32,198  root       handle_response DEBUG    Processing: '<pos_answer>20</pos_answer> <header>7EA</header><size>03</size><data>41 0D 20</data>'
+2025-02-06 19:04:32,198  root       handle_response DEBUG    Write: '7E8 03 41 0D 20 \r7EA 03 41 0D 20 \r\r>'
+2025-02-06 19:04:33,199  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:33,199  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:33,199  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:33,199  root       handle_response DEBUG    Processing: '<pos_answer>24</pos_answer> <header>7EA</header><size>03</size><data>41 0D 24</data>'
+2025-02-06 19:04:33,199  root       handle_response DEBUG    Write: '7E8 03 41 0D 24 \r7EA 03 41 0D 24 \r\r>'
+2025-02-06 19:04:34,201  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:34,201  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:34,201  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:34,201  root       handle_response DEBUG    Processing: '<pos_answer>28</pos_answer> <header>7EA</header><size>03</size><data>41 0D 28</data>'
+2025-02-06 19:04:34,201  root       handle_response DEBUG    Write: '7E8 03 41 0D 28 \r7EA 03 41 0D 28 \r\r>'
+2025-02-06 19:04:35,203  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:35,203  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:35,203  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:35,203  root       handle_response DEBUG    Processing: '<pos_answer>2C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 2C</data>'
+2025-02-06 19:04:35,203  root       handle_response DEBUG    Write: '7E8 03 41 0D 2C \r7EA 03 41 0D 2C \r\r>'
+2025-02-06 19:04:36,204  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:36,205  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:36,205  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:36,205  root       handle_response DEBUG    Processing: '<pos_answer>30</pos_answer> <header>7EA</header><size>03</size><data>41 0D 30</data>'
+2025-02-06 19:04:36,205  root       handle_response DEBUG    Write: '7E8 03 41 0D 30 \r7EA 03 41 0D 30 \r\r>'
+2025-02-06 19:04:37,206  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:37,206  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:37,206  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:37,206  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:04:37,206  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'
+2025-02-06 19:04:38,207  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:38,207  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:38,208  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:38,208  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:04:38,208  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:04:39,209  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:39,209  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:39,209  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:39,209  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:04:39,209  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:04:40,211  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:40,211  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:40,211  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:40,211  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:04:40,211  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:04:41,212  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:41,212  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:41,212  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:41,212  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:04:41,212  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:04:42,214  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:42,214  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:42,214  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:42,214  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:04:42,214  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:04:43,215  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:43,215  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:43,215  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:43,215  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:04:43,215  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:04:44,217  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:44,217  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:44,217  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:44,217  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:04:44,217  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:04:45,218  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:45,218  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:45,218  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:45,218  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:04:45,218  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:04:46,220  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:46,220  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:46,220  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:46,220  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:04:46,220  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:04:47,221  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:47,221  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:47,221  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:47,221  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:04:47,221  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:04:48,222  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:48,222  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:48,222  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:48,222  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:04:48,223  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:04:49,224  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:49,224  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:49,224  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:49,224  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:04:49,224  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:04:50,226  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:50,226  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:50,226  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:50,226  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:04:50,226  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:04:51,228  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:51,228  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:51,228  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:51,228  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:04:51,228  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:04:52,229  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:52,229  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:52,229  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:52,229  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:04:52,229  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:04:53,231  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:53,231  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:53,232  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:53,232  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:04:53,232  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:04:54,233  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:54,233  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:54,233  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:54,233  root       handle_response DEBUG    Processing: '<pos_answer>78</pos_answer> <header>7EA</header><size>03</size><data>41 0D 78</data>'
+2025-02-06 19:04:54,233  root       handle_response DEBUG    Write: '7E8 03 41 0D 78 \r7EA 03 41 0D 78 \r\r>'
+2025-02-06 19:04:55,235  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:55,235  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:55,235  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:55,235  root       handle_response DEBUG    Processing: '<pos_answer>74</pos_answer> <header>7EA</header><size>03</size><data>41 0D 74</data>'
+2025-02-06 19:04:55,235  root       handle_response DEBUG    Write: '7E8 03 41 0D 74 \r7EA 03 41 0D 74 \r\r>'
+2025-02-06 19:04:56,236  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:56,236  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:56,236  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:56,236  root       handle_response DEBUG    Processing: '<pos_answer>70</pos_answer> <header>7EA</header><size>03</size><data>41 0D 70</data>'
+2025-02-06 19:04:56,236  root       handle_response DEBUG    Write: '7E8 03 41 0D 70 \r7EA 03 41 0D 70 \r\r>'
+2025-02-06 19:04:57,238  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:57,238  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:57,238  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:57,238  root       handle_response DEBUG    Processing: '<pos_answer>6C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 6C</data>'
+2025-02-06 19:04:57,238  root       handle_response DEBUG    Write: '7E8 03 41 0D 6C \r7EA 03 41 0D 6C \r\r>'
+2025-02-06 19:04:58,239  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:58,239  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:58,239  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:58,239  root       handle_response DEBUG    Processing: '<pos_answer>68</pos_answer> <header>7EA</header><size>03</size><data>41 0D 68</data>'
+2025-02-06 19:04:58,239  root       handle_response DEBUG    Write: '7E8 03 41 0D 68 \r7EA 03 41 0D 68 \r\r>'
+2025-02-06 19:04:59,241  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:04:59,241  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:04:59,241  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:04:59,241  root       handle_response DEBUG    Processing: '<pos_answer>64</pos_answer> <header>7EA</header><size>03</size><data>41 0D 64</data>'
+2025-02-06 19:04:59,241  root       handle_response DEBUG    Write: '7E8 03 41 0D 64 \r7EA 03 41 0D 64 \r\r>'
+2025-02-06 19:05:00,242  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:00,243  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:00,243  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:00,243  root       handle_response DEBUG    Processing: '<pos_answer>60</pos_answer> <header>7EA</header><size>03</size><data>41 0D 60</data>'
+2025-02-06 19:05:00,243  root       handle_response DEBUG    Write: '7E8 03 41 0D 60 \r7EA 03 41 0D 60 \r\r>'
+2025-02-06 19:05:01,244  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:01,244  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:01,244  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:01,244  root       handle_response DEBUG    Processing: '<pos_answer>5C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 5C</data>'
+2025-02-06 19:05:01,244  root       handle_response DEBUG    Write: '7E8 03 41 0D 5C \r7EA 03 41 0D 5C \r\r>'
+2025-02-06 19:05:02,245  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:02,246  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:02,246  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:02,246  root       handle_response DEBUG    Processing: '<pos_answer>58</pos_answer> <header>7EA</header><size>03</size><data>41 0D 58</data>'
+2025-02-06 19:05:02,246  root       handle_response DEBUG    Write: '7E8 03 41 0D 58 \r7EA 03 41 0D 58 \r\r>'
+2025-02-06 19:05:03,247  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:03,247  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:03,247  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:03,247  root       handle_response DEBUG    Processing: '<pos_answer>54</pos_answer> <header>7EA</header><size>03</size><data>41 0D 54</data>'
+2025-02-06 19:05:03,247  root       handle_response DEBUG    Write: '7E8 03 41 0D 54 \r7EA 03 41 0D 54 \r\r>'
+2025-02-06 19:05:04,248  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:04,248  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:04,248  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:04,248  root       handle_response DEBUG    Processing: '<pos_answer>50</pos_answer> <header>7EA</header><size>03</size><data>41 0D 50</data>'
+2025-02-06 19:05:04,248  root       handle_response DEBUG    Write: '7E8 03 41 0D 50 \r7EA 03 41 0D 50 \r\r>'
+2025-02-06 19:05:05,250  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:05,250  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:05,250  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:05,250  root       handle_response DEBUG    Processing: '<pos_answer>4C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 4C</data>'
+2025-02-06 19:05:05,250  root       handle_response DEBUG    Write: '7E8 03 41 0D 4C \r7EA 03 41 0D 4C \r\r>'
+2025-02-06 19:05:06,251  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:06,251  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:06,251  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:06,251  root       handle_response DEBUG    Processing: '<pos_answer>48</pos_answer> <header>7EA</header><size>03</size><data>41 0D 48</data>'
+2025-02-06 19:05:06,251  root       handle_response DEBUG    Write: '7E8 03 41 0D 48 \r7EA 03 41 0D 48 \r\r>'
+2025-02-06 19:05:07,253  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:07,253  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:07,253  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:07,253  root       handle_response DEBUG    Processing: '<pos_answer>44</pos_answer> <header>7EA</header><size>03</size><data>41 0D 44</data>'
+2025-02-06 19:05:07,253  root       handle_response DEBUG    Write: '7E8 03 41 0D 44 \r7EA 03 41 0D 44 \r\r>'
+2025-02-06 19:05:08,254  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:08,254  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:08,254  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:08,254  root       handle_response DEBUG    Processing: '<pos_answer>40</pos_answer> <header>7EA</header><size>03</size><data>41 0D 40</data>'
+2025-02-06 19:05:08,254  root       handle_response DEBUG    Write: '7E8 03 41 0D 40 \r7EA 03 41 0D 40 \r\r>'
+2025-02-06 19:05:09,255  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:09,256  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:09,256  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:09,256  root       handle_response DEBUG    Processing: '<pos_answer>3C</pos_answer> <header>7EA</header><size>03</size><data>41 0D 3C</data>'
+2025-02-06 19:05:09,256  root       handle_response DEBUG    Write: '7E8 03 41 0D 3C \r7EA 03 41 0D 3C \r\r>'
+2025-02-06 19:05:10,257  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:10,257  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:10,258  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:10,258  root       handle_response DEBUG    Processing: '<pos_answer>38</pos_answer> <header>7EA</header><size>03</size><data>41 0D 38</data>'
+2025-02-06 19:05:10,258  root       handle_response DEBUG    Write: '7E8 03 41 0D 38 \r7EA 03 41 0D 38 \r\r>'
+2025-02-06 19:05:11,259  root       run             DEBUG    repeating previous command: '010D2'
+2025-02-06 19:05:11,260  root       handle_request  DEBUG    Handling: '010D2', header '7E0', ECU '7E0'
+2025-02-06 19:05:11,260  root       handle_request  DEBUG    Description: Vehicle Speed, PID SPEED (010D2)
+2025-02-06 19:05:11,260  root       handle_response DEBUG    Processing: '<pos_answer>34</pos_answer> <header>7EA</header><size>03</size><data>41 0D 34</data>'
+2025-02-06 19:05:11,260  root       handle_response DEBUG    Write: '7E8 03 41 0D 34 \r7EA 03 41 0D 34 \r\r>'

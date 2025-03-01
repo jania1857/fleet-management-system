@@ -12,9 +12,9 @@ def authenticate(input_username, input_password):
         "username": input_username,
         "password": input_password,
     }
-
     auth_response = requests.post("http://localhost:8080/api/v1/public/login", json=auth_payload)
     return auth_response.json()['token']
+
 def send_new_mileage(input_mileage):
     headers = {
         "Authorization": "Bearer " + authenticate(username, password),
