@@ -13,6 +13,7 @@ import NewUser from "./pages/Admin/Users/NewUser.tsx";
 import NewCar from "./pages/Admin/Cars/NewCar.tsx";
 import AdminAssignments from "./pages/Admin/Assignments/AdminAssignments.tsx";
 import {NewAssignment} from "./pages/Admin/Assignments/NewAssignment.tsx";
+import EditCar from "./pages/Admin/Cars/EditCar.tsx";
 
 function App() {
     return (
@@ -35,6 +36,10 @@ function App() {
                     <Route
                         path="cars/new"
                         element={<NewCar />}
+                    />
+                    <Route
+                        path="cars/edit/:id"
+                        element={<EditCar />}
                     />
                     <Route
                         path="users"

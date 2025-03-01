@@ -15,7 +15,7 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
     const navigateUri: string = isAdmin ? "/admin/cars/" : "/manager/cars/";
     const handleDelete = async (vehicleId: number | undefined) => {
         if (!vehicleId) {
-            alert("Brak ID dla użytkownika")
+            alert("Brak ID dla pojazdu")
             return;
         }
         const confirmDelete = window.confirm(`Czy na pewno chcesz usunąć użytkownika o ID: ${vehicleId}?`);
@@ -24,6 +24,13 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
         await managerApi.deleteVehicle(vehicleId);
         alert(`Użytkownik o ID ${vehicleId} został usunięty`)
         vehicles = vehicles.filter(vehicle => vehicle.id !== vehicleId);
+    }
+    const handleEdit = async (vehicleId: number | undefined) => {
+        if (!vehicleId) {
+            alert("Brak ID dla pojazdu")
+            return;
+        }
+        navigate('edit/' + vehicleId);
     }
 
 
@@ -34,43 +41,53 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    ID</th>
+                    ID
+                </th>
                 <th
                     className="py-3 px-6 text-left cursor-pointer"
                 >
-                    Marka</th>
+                    Marka
+                </th>
                 <th
                     className="py-3 px-6 text-left cursor-pointer"
                 >
-                    Model</th>
+                    Model
+                </th>
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    Rocznik</th>
+                    Rocznik
+                </th>
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    Nr rej.</th>
+                    Nr rej.
+                </th>
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    VIN</th>
+                    VIN
+                </th>
                 <th
                     className="py-3 px-6 text-left cursor-pointer"
                 >
-                    Status</th>
+                    Status
+                </th>
                 <th
                     className="py-3 px-6 text-left cursor-pointer"
                 >
-                    Paliwo</th>
+                    Paliwo
+                </th>
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    Poj. silnika</th>
+                    Poj. silnika
+                </th>
                 <th
                     className="py-3 px-6 text-right cursor-pointer"
                 >
-                    Przebieg</th>
+                    Przebieg
+                </th>
                 {
                     isAdmin && (
                         <th className="py-3 px-6 text-center">Akcje</th>
@@ -104,12 +121,25 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
                             isAdmin && (
                                 <td className="py-3 px-6 text-right">
                                     <button
-                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            handleEdit(vehicle.id).then(_ => {
+                                                return
+                                            })
+                                        }}
+                                    >
+
                                         Edytuj
                                     </button>
                                     <button
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={() => handleDelete(vehicle.id)}
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            handleDelete(vehicle.id).then(_ => {
+                                                return
+                                            })
+                                        }}
                                     >
                                         Usuń
                                     </button>

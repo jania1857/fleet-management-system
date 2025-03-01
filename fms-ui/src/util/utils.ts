@@ -1,6 +1,10 @@
 import {MileageChangeDto, StatusChangeDto, VehicleDto} from "../generated-client";
 
-export const getVehicleStatus = (vehicle: VehicleDto) => {
+export const getVehicleStatus = (vehicle: VehicleDto | undefined) => {
+    if (!vehicle) {
+        return null;
+    }
+
     const statusList: StatusChangeDto[] = vehicle.statusChanges || [];
 
     if (statusList.length === 0) {
@@ -12,15 +16,20 @@ export const getVehicleStatus = (vehicle: VehicleDto) => {
     });
 }
 
-export const getVehicleMileage = (vehicle: VehicleDto) => {
+export const getVehicleMileage = (vehicle: VehicleDto | undefined) => {
+    if (!vehicle) {
+        return undefined;
+    }
     const mileageList: MileageChangeDto[] = vehicle.mileageChanges || [];
 
     if (mileageList.length === 0) {
         console.error("Brak przebiegów dla pojazdu o id: ", vehicle.id);
         return null;
     }
-    return mileageList.reduce((latest, highest) =>
-        highest.id > latest.id ? highest : latest
+    return mileageList.reduce((latest, highest) => {
+            // @ts-ignore
+            return highest.id > latest.id ? highest : latest
+        }
     )
 }
 

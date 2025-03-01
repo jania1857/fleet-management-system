@@ -2,11 +2,13 @@ version: '3.8'
 services:
   mock-fuel-card-api:
     image: mock-fuel-card-api
+    container_name: mock-fuel-card-api
     build: .
     ports:
       - "8081:8081"
   fleet-management-system-api:
     image: fms-api
+    container_name: fms-api
     build: .
     ports:
       - "8080:8080"
