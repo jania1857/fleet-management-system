@@ -81,7 +81,7 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin, showIot}) => {
                                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
                                         onClick={(event) => {
                                             event.stopPropagation();
-                                            handleDelete(user.id).then(_ => {
+                                            handleEdit(user.id).then(_ => {
                                                 return
                                             })
                                         }}
@@ -92,7 +92,7 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin, showIot}) => {
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                                         onClick={(event) => {
                                             event.stopPropagation();
-                                            handleEdit(user.id).then(_ => {
+                                            handleDelete(user.id).then(_ => {
                                                 return
                                             })
                                         }}

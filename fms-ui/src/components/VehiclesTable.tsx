@@ -25,14 +25,6 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
         alert(`Użytkownik o ID ${vehicleId} został usunięty`)
         vehicles = vehicles.filter(vehicle => vehicle.id !== vehicleId);
     }
-    const handleEdit = async (vehicleId: number | undefined) => {
-        if (!vehicleId) {
-            alert("Brak ID dla pojazdu")
-            return;
-        }
-        navigate('edit/' + vehicleId);
-    }
-
 
     return (
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
@@ -90,7 +82,7 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
                 </th>
                 {
                     isAdmin && (
-                        <th className="py-3 px-6 text-center">Akcje</th>
+                        <th className="py-3 px-6 text-right">Akcje</th>
                     )
                 }
             </tr>
@@ -120,18 +112,6 @@ const VehiclesTable: React.FC<VehicleTableProps> = ({isAdmin, vehicles}) => {
                         {
                             isAdmin && (
                                 <td className="py-3 px-6 text-right">
-                                    <button
-                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={(event) => {
-                                            event.stopPropagation();
-                                            handleEdit(vehicle.id).then(_ => {
-                                                return
-                                            })
-                                        }}
-                                    >
-
-                                        Edytuj
-                                    </button>
                                     <button
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                                         onClick={(event) => {
