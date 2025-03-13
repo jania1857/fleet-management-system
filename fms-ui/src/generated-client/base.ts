@@ -18,8 +18,10 @@ import type { Configuration } from './configuration';
 // @ts-ignore
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
+import AppConfig from '../util/AppConfig.ts'
 
-export const BASE_PATH = "http://localhost:8080".replace(/\/+$/, "");
+// export const BASE_PATH = "http://ec2-51-20-91-57.eu-north-1.compute.amazonaws.com:8080/".replace(/\/+$/, "");
+export const BASE_PATH = (AppConfig.getBasePath()).replace(/\/+$/, "");
 
 /**
  *

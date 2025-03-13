@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import axios from "axios";
+import AppConfig from "../util/AppConfig.ts";
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState<string>("");
@@ -14,7 +15,7 @@ const Login: React.FC = () => {
         setError(null);
 
         try {
-            const response = await axios.post("http://localhost:8080/api/v1/public/login", {
+            const response = await axios.post(AppConfig.getBasePath(), {
                 username,
                 password,
             });
