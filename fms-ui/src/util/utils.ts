@@ -49,3 +49,19 @@ export const isVehicleAssignable = (vehicle: VehicleDto) => {
     const status = getVehicleStatus(vehicle);
     return status?.newStatus === "READY" || status?.newStatus === "REQUIRES_ATTENTION";
 }
+
+export const formatDate = (dateString: string | undefined) => {
+    if (!dateString || dateString === "") {
+        return "";
+    }
+
+    const date = new Date(dateString);
+    return date.toLocaleDateString("pl-PL", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+}

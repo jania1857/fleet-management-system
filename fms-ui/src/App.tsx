@@ -19,6 +19,7 @@ import ManagerNewUser from "./pages/Manager/Drivers/NewUser.tsx";
 import ManagerNewCar from "./pages/Manager/Cars/NewCar.tsx";
 import {NewAssignment as ManagerNewAssignment} from "./pages/Manager/Assignments/NewAssignment.tsx";
 import ManagerUsers from "./pages/Manager/Drivers/ManagerUsers.tsx";
+import MyAssignments from "./pages/Driver/MyAssignments.tsx";
 
 function App() {
     return (
@@ -108,7 +109,7 @@ function App() {
                 >
                     <Route
                         path="dashboard"
-                        element={<h1>Dashboard</h1>}
+                        element={<MyAssignments />}
                     />
                 </Route>
             </Routes>

@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({role}) => {
             {name: "Przypisania", path: "/manager/assignments"},
         ],
         driver: [
-            {name: "Dashboard", path: "/driver/dashboard"},
+            {name: "Dashboard", path: "/driver/dashboard"}
         ]
     };
 

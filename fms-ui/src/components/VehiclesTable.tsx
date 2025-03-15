@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {VehicleDto} from "../generated-client";
 import {getVehicleMileage, getVehicleStatus} from "../util/utils.ts";
 import {managerApi} from "../api/apiClient.ts";
+import React from "react";
 
 interface VehicleTableProps {
     isAdmin: boolean;
