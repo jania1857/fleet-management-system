@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import image from "../../../assets/placeholder.jpg";
 import {useParams} from "react-router-dom";
 import {ChangeStatusRequest, StatusChangeDtoNewStatusEnum, UserDto, VehicleDto} from "../../../generated-client";
-import {allApi, managerApi, adminApi} from "../../../api/apiClient.ts";
+import {allApi, managerApi} from "../../../api/apiClient.ts";
 import {getVehicleMileage, getVehicleStatus} from "../../../util/utils.ts";
 import Accordion from "../../../components/Accordion.tsx";
 import InsuranceForm from "./Forms/InsuranceForm.tsx";
 import InspectionForm from "./Forms/InspectionForm.tsx";
 import ServiceForm from "./Forms/ServiceForm.tsx";
 
-const EditCar: React.FC = () => {
+const ManagerCarDetails: React.FC = () => {
 
     const [vehicle, setVehicle] = useState<VehicleDto>();
     const [loading, setLoading] = useState(true);
@@ -104,63 +104,6 @@ const EditCar: React.FC = () => {
             })
             .catch((error) => {
                 alert("Błąd podczas zakończenia przypisania: " + error);
-            });
-        window.location.reload();
-    }
-    const handleDeleteInsurance = async (insuranceId: number) => {
-        if (!insuranceId) {
-            alert("Brak ID dla tego ubezpieczenia!")
-        }
-        const confirm = window.confirm(`Czy na pewno chcesz usunąć ubezpieczenie dla tego pojazdu?`);
-        if (!confirm) return;
-
-        await adminApi.deleteInsurance(insuranceId)
-            .then(async (response) => {
-                if (response.status === 200) {
-                    alert("Pomyślnie usunięto ubezpieczenie")
-                }
-                return;
-            })
-            .catch((error) => {
-                alert("Błąd podczas usuwania ubezpieczenia: " + error);
-            });
-        window.location.reload();
-    }
-    const handleDeleteInspection = async (inspectionId: number) => {
-        if (!vehicleId) {
-            alert("Brak ID dla tego przeglądu!")
-        }
-        const confirm = window.confirm(`Czy na pewno chcesz usunąć przegląd dla tego pojazdu?`);
-        if (!confirm) return;
-
-        await adminApi.deleteInspection(inspectionId)
-            .then(async (response) => {
-                if (response.status === 200) {
-                    alert("Pomyślnie usunięto przegląd")
-                }
-                return;
-            })
-            .catch((error) => {
-                alert("Błąd podczas usuwania przeglądu: " + error);
-            });
-        window.location.reload();
-    }
-    const handleDeleteService = async (serviceId: number) => {
-        if (!serviceId) {
-            alert("Brak ID dla tego serwisu!")
-        }
-        const confirm = window.confirm(`Czy na pewno chcesz usunąć serwis dla tego pojazdu?`);
-        if (!confirm) return;
-
-        await adminApi.deleteService(serviceId)
-            .then(async (response) => {
-                if (response.status === 200) {
-                    alert("Pomyślnie usunięto serwis")
-                }
-                return;
-            })
-            .catch((error) => {
-                alert("Błąd podczas usuwania serwisu: " + error);
             });
         window.location.reload();
     }
@@ -667,11 +610,6 @@ const EditCar: React.FC = () => {
                         >
                             Typ
                         </th>
-                        <th
-                            className="py-3 px-6 text-right"
-                        >
-                            Akcje
-                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -684,14 +622,6 @@ const EditCar: React.FC = () => {
                                 <td className="py-3 px-6 text-right">{insurance.endDate}</td>
                                 <td className="py-3 px-6 text-right">{insurance.description}</td>
                                 <td className="py-3 px-6 text-right">{insurance.type}</td>
-                                <td className="py-3 px-6 text-right">
-                                    <button
-                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={() => handleDeleteInsurance(insurance.id || 0)}
-                                    >
-                                        Usuń
-                                    </button>
-                                </td>
                             </tr>
                         ))
                     }
@@ -727,11 +657,6 @@ const EditCar: React.FC = () => {
                         >
                             Opis
                         </th>
-                        <th
-                            className="py-3 px-6 text-right"
-                        >
-                            Akcje
-                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -743,14 +668,6 @@ const EditCar: React.FC = () => {
                                 <td className="py-3 px-6 text-right">{inspection.inspectionDate}</td>
                                 <td className="py-3 px-6 text-right">{inspection.nextInspectionDate}</td>
                                 <td className="py-3 px-6 text-right">{inspection.description}</td>
-                                <td className="py-3 px-6 text-right">
-                                    <button
-                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={() => handleDeleteInspection(inspection.id || 0)}
-                                    >
-                                        Usuń
-                                    </button>
-                                </td>
                             </tr>
                         ))
                     }
@@ -786,11 +703,6 @@ const EditCar: React.FC = () => {
                         >
                             Cena
                         </th>
-                        <th
-                            className="py-3 px-6 text-right"
-                        >
-                            Akcje
-                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -802,14 +714,6 @@ const EditCar: React.FC = () => {
                                 <td className="py-3 px-6 text-right">{service.mileageAtTheTime}</td>
                                 <td className="py-3 px-6 text-right">{service.description}</td>
                                 <td className="py-3 px-6 text-right">{service.cost?.amount}</td>
-                                <td className="py-3 px-6 text-right">
-                                    <button
-                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={() => handleDeleteService(service.id || 0)}
-                                    >
-                                        Usuń
-                                    </button>
-                                </td>
                             </tr>
                         ))
                     }
@@ -882,4 +786,4 @@ const EditCar: React.FC = () => {
     )
 }
 
-export default EditCar;
+export default ManagerCarDetails;

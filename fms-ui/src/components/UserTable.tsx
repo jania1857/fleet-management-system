@@ -13,7 +13,7 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin, showIot}) => {
 
     const navigate = useNavigate();
 
-    const navigateUri: string = isAdmin ? "/admin/users/" : "/manager/users/";
+    const navigateUri: string = isAdmin ? "/admin/users/" : "/manager/drivers/";
 
     const handleDelete = async (userID: number | undefined) => {
         if (!userID) {
@@ -76,30 +76,32 @@ const UserTable: React.FC<UserTableProps> = ({users, isAdmin, showIot}) => {
                             <td className="py-3 px-6 text-right">{user.lastname}</td>
                             <td className="py-3 px-6 text-right">{user.role}</td>
                             {
-                                <td className="py-3 px-6 text-right">
-                                    <button
-                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                                        onClick={(event) => {
-                                            event.stopPropagation();
-                                            handleEdit(user.id).then(_ => {
-                                                return
-                                            })
-                                        }}
-                                    >
-                                        Edytuj
-                                    </button>
-                                    <button
-                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={(event) => {
-                                            event.stopPropagation();
-                                            handleDelete(user.id).then(_ => {
-                                                return
-                                            })
-                                        }}
-                                    >
-                                        Usuń
-                                    </button>
-                                </td>
+                                isAdmin && (
+                                    <td className="py-3 px-6 text-right">
+                                        <button
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                handleEdit(user.id).then(_ => {
+                                                    return
+                                                })
+                                            }}
+                                        >
+                                            Edytuj
+                                        </button>
+                                        <button
+                                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                handleDelete(user.id).then(_ => {
+                                                    return
+                                                })
+                                            }}
+                                        >
+                                            Usuń
+                                        </button>
+                                    </td>
+                                )
                             }
                         </tr>
                     )

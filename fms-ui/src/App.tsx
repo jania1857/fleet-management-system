@@ -6,13 +6,19 @@ import AdminRoot from "./pages/AdminRoot.tsx";
 import ManagerRoot from "./pages/ManagerRoot.tsx";
 import DriverRoot from "./pages/DriverRoot.tsx";
 import AdminCars from "./pages/Admin/Cars/AdminCars.tsx";
-import CarDetails from "./pages/Admin/Cars/CarDetails.tsx";
+import AdminCarDetails from "./pages/Admin/Cars/AdminCarDetails.tsx";
 import AdminUsers from "./pages/Admin/Users/AdminUsers.tsx";
-import UserDetails from "./pages/Admin/Users/UserDetails.tsx";
-import NewUser from "./pages/Admin/Users/NewUser.tsx";
-import NewCar from "./pages/Admin/Cars/NewCar.tsx";
+import AdminUserDetails from "./pages/Admin/Users/UserDetails.tsx";
+import AdminNewUser from "./pages/Admin/Users/NewUser.tsx";
+import AdminNewCar from "./pages/Admin/Cars/NewCar.tsx";
 import AdminAssignments from "./pages/Admin/Assignments/AdminAssignments.tsx";
-import {NewAssignment} from "./pages/Admin/Assignments/NewAssignment.tsx";
+import {NewAssignment as AdminNewAssignment} from "./pages/Admin/Assignments/NewAssignment.tsx";
+import ManagerCars from "./pages/Manager/Cars/ManagerCars.tsx";
+import ManagerUserDetails from "./pages/Manager/Drivers/UserDetails.tsx";
+import ManagerNewUser from "./pages/Manager/Drivers/NewUser.tsx";
+import ManagerNewCar from "./pages/Manager/Cars/NewCar.tsx";
+import {NewAssignment as ManagerNewAssignment} from "./pages/Manager/Assignments/NewAssignment.tsx";
+import ManagerUsers from "./pages/Manager/Drivers/ManagerUsers.tsx";
 
 function App() {
     return (
@@ -30,11 +36,11 @@ function App() {
                     />
                     <Route
                         path="cars/:id"
-                        element={<CarDetails />}
+                        element={<AdminCarDetails />}
                     />
                     <Route
                         path="cars/new"
-                        element={<NewCar />}
+                        element={<AdminNewCar />}
                     />
                     <Route
                         path="users"
@@ -42,11 +48,11 @@ function App() {
                     />
                     <Route
                         path="users/:id"
-                        element={<UserDetails />}
+                        element={<AdminUserDetails />}
                     />
                     <Route
                         path="users/new"
-                        element={<NewUser />}
+                        element={<AdminNewUser />}
                     />
                     <Route
                         path="assignments"
@@ -54,7 +60,7 @@ function App() {
                     />
                     <Route
                         path="assignments/new"
-                        element={<NewAssignment />}
+                        element={<AdminNewAssignment />}
                     />
                 </Route>
 
@@ -63,8 +69,36 @@ function App() {
                     element={<ProtectedRoute role="manager" component={ManagerRoot}/>}
                 >
                     <Route
-                        path="dashboard"
-                        element={<h1>Dashboard</h1>}
+                        path="cars"
+                        element={<ManagerCars />}
+                    />
+                    <Route
+                        path="cars/:id"
+                        element={<AdminCarDetails />}
+                    />
+                    <Route
+                        path="cars/new"
+                        element={<ManagerNewCar />}
+                    />
+                    <Route
+                        path="drivers"
+                        element={<ManagerUsers/>}
+                    />
+                    <Route
+                        path="drivers/:id"
+                        element={<ManagerUserDetails />}
+                    />
+                    <Route
+                        path="drivers/new"
+                        element={<ManagerNewUser />}
+                    />
+                    <Route
+                        path="assignments"
+                        element={<AdminAssignments />}
+                    />
+                    <Route
+                        path="assignments/new"
+                        element={<ManagerNewAssignment />}
                     />
                 </Route>
 

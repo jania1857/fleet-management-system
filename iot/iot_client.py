@@ -4,15 +4,22 @@ import requests
 import configparser
 import sys
 
+#use_aws = true
+use_aws = false
+
+local_base_path = "http://localhost:8080/api/v1/"
+aws_base_path = "http://ec2-51-20-91-57.eu-north-1.compute.amazonaws.com/api/v1"
+
 def calculate_distance(input_speed, input_time):
     speed_kmh = input_speed.value.magnitude
     return (speed_kmh / 3.6 * input_time) / 1000
+
 def authenticate(input_username, input_password):
     auth_payload = {
         "username": input_username,
         "password": input_password,
     }
-    auth_response = requests.post("http://localhost:8080/api/v1/public/login", json=auth_payload)
+    auth_response = requests.post(aws_base_path if use_aws else local_base_path + "public/login", json=auth_payload)
     return auth_response.json()['token']
 
 def send_new_mileage(input_mileage):

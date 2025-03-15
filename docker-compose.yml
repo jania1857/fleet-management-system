@@ -1,15 +1,15 @@
 version: '3.8'
 services:
   mock-fuel-card-api:
-#    image: mock-fuel-card-api # local
-    image: 890742607886.dkr.ecr.eu-north-1.amazonaws.com/fleet-management-system:fms-mock-fuel # AWS
+    image: mock-fuel-card-api # local
+#    image: 890742607886.dkr.ecr.eu-north-1.amazonaws.com/fleet-management-system:fms-mock-fuel # AWS
     container_name: mock-fuel-card-api
     build: .
     ports:
       - "8081:8081"
   fleet-management-system-api:
-#    image: fms-api # local
-    image: 890742607886.dkr.ecr.eu-north-1.amazonaws.com/fleet-management-system:fms-api # AWS
+    image: fms-api # local
+#    image: 890742607886.dkr.ecr.eu-north-1.amazonaws.com/fleet-management-system:fms-api # AWS
     container_name: fms-api
     build: .
     ports:

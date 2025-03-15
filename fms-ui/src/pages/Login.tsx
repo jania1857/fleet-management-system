@@ -15,7 +15,7 @@ const Login: React.FC = () => {
         setError(null);
 
         try {
-            const response = await axios.post(AppConfig.getBasePath(), {
+            const response = await axios.post(AppConfig.getBasePath() + "api/v1/public/login", {
                 username,
                 password,
             });
